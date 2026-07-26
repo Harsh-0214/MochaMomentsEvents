@@ -30,10 +30,11 @@ export function Hero() {
         };
 
   return (
-    <section id="top" className="relative">
-      {/* Photo begins below the 4.5rem fixed nav and fills the viewport */}
+    <section id="top" className="relative pt-[4.5rem]">
+      {/* Padding (not margin) reserves the nav strip, so it can't collapse out
+          of the section and shift the absolutely-positioned card below it */}
       <motion.div
-        className="relative mt-[4.5rem] h-[58svh] min-h-[22rem] lg:h-[calc(100svh-4.5rem)]"
+        className="relative h-[58svh] min-h-[22rem] lg:h-[calc(100svh-4.5rem)]"
         initial={{ opacity: 0, scale: reduceMotion ? 1 : 1.04 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.1, ease: EASE_OUT }}
@@ -51,8 +52,8 @@ export function Hero() {
       {/* Single card instance: block below the photo on mobile, arched
           overlay at the top of the photo from lg up */}
       <div className="bg-ivory px-5 py-12 sm:px-8 lg:absolute lg:inset-x-0 lg:top-[4.5rem] lg:flex lg:justify-center lg:bg-transparent lg:px-8 lg:py-0">
-        <div className="text-center lg:w-full lg:max-w-lg lg:rounded-b-sm lg:rounded-t-full lg:bg-ivory/95 lg:p-2.5 lg:pb-3 lg:shadow-[0_24px_70px_-24px_rgba(46,31,23,0.5)] lg:backdrop-blur-sm">
-          <div className="lg:rounded-b-[1px] lg:rounded-t-full lg:border lg:border-gold/55 lg:px-9 lg:pb-8 lg:pt-24">
+        <div className="text-center lg:w-full lg:max-w-2xl lg:rounded-b-full lg:bg-ivory/95 lg:px-2.5 lg:pb-2.5 lg:shadow-[0_24px_70px_-24px_rgba(46,31,23,0.5)] lg:backdrop-blur-sm">
+          <div className="lg:rounded-b-full lg:border-x lg:border-b lg:border-gold/55 lg:px-10 lg:pb-24 lg:pt-9">
             <motion.p {...settle(0.45)} className="eyebrow">
               {site.regions}
             </motion.p>
