@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --espresso: #2e1f17;
+  --mocha: #4a3222;
+  --ivory: #fbf6ef;
+  --champagne: #f3e8d8;
+  --gold: #c9a464;
+  --sage: #a8ad91;
+  /* RGB channels for Tailwind's <alpha-value> opacity modifiers */
+  --espresso-rgb: 46 31 23;
+  --mocha-rgb: 74 50 34;
+  --ivory-rgb: 251 246 239;
+  --champagne-rgb: 243 232 216;
+  --gold-rgb: 201 164 100;
+  --sage-rgb: 168 173 145;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Anchored sections land clear of the fixed nav */
+  scroll-padding-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--ivory);
+  color: var(--mocha);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--gold);
+  color: var(--espresso);
+}
+
+/* Visible keyboard focus everywhere; gold ring on light, cream ring on espresso */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--champagne);
+}
+
+/* Form fields: static focus treatment, no animation on keyboard-driven interaction */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+  transition: none;
+}
+
+/* Gallery hover zoom — pointer devices only, and only when motion is allowed */
+@media (hover: hover) and (pointer: fine) {
+  .gallery-zoom {
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .group:hover .gallery-zoom {
+    transform: scale(1.045);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .group:hover .gallery-zoom {
+      transform: none;
+    }
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-sans text-[0.7rem] font-medium uppercase tracking-eyebrow text-gold;
+  }
+}

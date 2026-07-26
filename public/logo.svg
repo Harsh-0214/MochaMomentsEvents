@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="220" viewBox="0 0 440 220" role="img" aria-label="Mocha Moments Events, est. 2025, by Anastasiya Moroz, California">
+  <style>
+    .word { font-family: Georgia, 'Times New Roman', serif; fill: #F3E8D8; }
+    .sub { font-family: Georgia, serif; fill: #C9A464; }
+  </style>
+  <!-- coffee-ring / wedding-ring mark -->
+  <g transform="translate(220 52)">
+    <path d="M0 -30c14.7-1.8 34.5 10.5 37.2 31.2C39.9 22 24.3 41.4 3.6 43.2-16.8 45-35.4 30.3-38.1 9.6-40.5-8.7-26.1-26.4-6.9-28.8" stroke="#C9A464" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <ellipse cx="0" cy="8" rx="10" ry="13" fill="#F3E8D8"/>
+    <path d="M0 -4c3 4 3 20 0 24" stroke="#2E1F17" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </g>
+  <text x="220" y="132" text-anchor="middle" class="word" font-size="34" letter-spacing="6">MOCHA MOMENTS</text>
+  <text x="220" y="162" text-anchor="middle" class="sub" font-size="13" letter-spacing="5">EST. 2025</text>
+  <text x="220" y="188" text-anchor="middle" class="sub" font-size="11" letter-spacing="2.5" font-style="italic">EVENTS BY ANASTASIYA MOROZ · CALIFORNIA</text>
+</svg>
