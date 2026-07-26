@@ -57,7 +57,7 @@ export function Hero() {
                 alt="Mocha Moments Events logo — cream serif wordmark with coffee bean illustration, est. 2025, events by Anastasiya Moroz, California"
                 width={396}
                 height={396}
-                className="h-36 w-36 rounded-xl object-cover shadow-[0_14px_36px_-14px_rgba(46,31,23,0.45)] sm:h-44 sm:w-44"
+                className="h-40 w-40 rounded-full object-cover shadow-[0_14px_36px_-14px_rgba(46,31,23,0.45)] ring-1 ring-gold/30 sm:h-48 sm:w-48"
                 priority
               />
             </motion.div>
