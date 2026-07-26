@@ -8,10 +8,9 @@ import { site } from "@/lib/site";
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 
 /**
- * Hero: the ceremony photo starts below the fixed nav and fills the rest of
- * the viewport (scrolling slides it under the nav). An arched title card —
- * a semicircle dome echoing a ceremony arch — sits at the top of the photo
- * on desktop; on mobile the same card flows below the photo as a block.
+ * Half-and-half hero: the ceremony photo fills the upper half beneath the
+ * solid nav, and an ivory masthead band closes the section like a footer —
+ * the studio logo, the name, the slogan, and the calls to action.
  */
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -31,11 +30,10 @@ export function Hero() {
 
   return (
     <section id="top" className="relative pt-[4.5rem]">
-      {/* Padding (not margin) reserves the nav strip, so it can't collapse out
-          of the section and shift the absolutely-positioned card below it */}
+      {/* Upper half — the ceremony photo */}
       <motion.div
-        className="relative h-[58svh] min-h-[22rem] lg:h-[calc(100svh-4.5rem)]"
-        initial={{ opacity: 0, scale: reduceMotion ? 1 : 1.04 }}
+        className="relative h-[42svh] min-h-[17rem] lg:h-[54svh]"
+        initial={{ opacity: 0, scale: reduceMotion ? 1 : 1.03 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.1, ease: EASE_OUT }}
       >
@@ -49,54 +47,52 @@ export function Hero() {
         />
       </motion.div>
 
-      {/* Single card instance: block below the photo on mobile, arched
-          overlay at the top of the photo from lg up */}
-      <div className="bg-ivory px-5 py-12 sm:px-8 lg:absolute lg:inset-x-0 lg:top-[4.5rem] lg:flex lg:justify-center lg:bg-transparent lg:px-8 lg:py-0">
-        <div className="text-center lg:w-full lg:max-w-2xl lg:rounded-b-full lg:bg-ivory/95 lg:px-2.5 lg:pb-2.5 lg:shadow-[0_24px_70px_-24px_rgba(46,31,23,0.5)] lg:backdrop-blur-sm">
-          <div className="lg:rounded-b-full lg:border-x lg:border-b lg:border-gold/55 lg:px-10 lg:pb-24 lg:pt-9">
-            <motion.p {...settle(0.45)} className="eyebrow">
-              {site.regions}
-            </motion.p>
-            <motion.h1
-              {...settle(0.58)}
-              className="mt-4 font-display text-[2rem] font-semibold uppercase leading-[1.12] tracking-[0.1em] text-espresso sm:text-4xl"
-            >
-              Mocha Moments
-              <span className="mt-1 block text-gold">Events</span>
-            </motion.h1>
-            <motion.div
-              {...settle(0.7)}
-              aria-hidden="true"
-              className="mx-auto mt-5 flex max-w-[15rem] items-center gap-4"
-            >
-              <span className="h-px flex-1 bg-gold/50" />
-              <svg width="16" height="16" viewBox="0 0 22 22" fill="none" className="text-gold">
-                <path
-                  d="M11 2.2c3.4-.4 8 2.4 8.6 7.2.6 5-3 9.6-7.8 10-4.7.4-9-3-9.6-7.8C1.6 7 5 2.9 9.4 2.3"
-                  stroke="currentColor"
-                  strokeWidth="1.1"
-                  strokeLinecap="round"
-                />
-              </svg>
-              <span className="h-px flex-1 bg-gold/50" />
+      {/* Lower half — masthead band */}
+      <div className="border-t border-gold/30 bg-ivory">
+        <div className="mx-auto max-w-page px-5 py-11 sm:px-8 lg:py-14">
+          <div className="flex flex-col items-center gap-9 text-center lg:flex-row lg:gap-12 lg:text-left">
+            <motion.div {...settle(0.45)} className="shrink-0">
+              <Image
+                src="/Mocha_Logo.jpg"
+                alt="Mocha Moments Events logo — cream serif wordmark with coffee bean illustration, est. 2025, events by Anastasiya Moroz, California"
+                width={396}
+                height={396}
+                className="h-36 w-36 rounded-xl object-cover shadow-[0_14px_36px_-14px_rgba(46,31,23,0.45)] sm:h-44 sm:w-44"
+                priority
+              />
             </motion.div>
-            <motion.p
-              {...settle(0.8)}
-              className="mx-auto mt-5 max-w-md text-[0.95rem] leading-relaxed text-mocha"
-            >
-              <em className="font-display italic text-espresso">
-                &ldquo;{site.slogan}&rdquo;
-              </em>{" "}
-              — wedding planning and day-of coordination for the Bay Area,
-              NorCal, and wherever love takes you.
-            </motion.p>
+
+            <div className="lg:border-l lg:border-gold/30 lg:pl-12">
+              <motion.p {...settle(0.55)} className="eyebrow">
+                {site.regions}
+              </motion.p>
+              <motion.h1
+                {...settle(0.65)}
+                className="mt-3 font-display text-[1.9rem] font-semibold uppercase leading-[1.15] tracking-[0.12em] text-espresso sm:text-4xl"
+              >
+                Mocha Moments Events
+              </motion.h1>
+              <motion.p
+                {...settle(0.75)}
+                className="mt-4 max-w-xl text-[0.95rem] leading-relaxed text-mocha"
+              >
+                <em className="font-display text-lg italic text-espresso">
+                  &ldquo;{site.slogan}&rdquo;
+                </em>
+                <span className="mt-1 block">
+                  Wedding planning and day-of coordination for the Bay Area,
+                  NorCal, and wherever love takes you.
+                </span>
+              </motion.p>
+            </div>
+
             <motion.div
-              {...settle(0.92)}
-              className="mt-6 flex flex-wrap items-center justify-center gap-4"
+              {...settle(0.85)}
+              className="flex flex-wrap items-center justify-center gap-5 lg:ml-auto lg:shrink-0 lg:flex-col lg:items-end"
             >
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-full bg-espresso px-6 py-3 text-sm font-medium text-ivory transition-colors duration-200 hover:bg-mocha"
+                className="inline-flex items-center gap-2 rounded-full bg-espresso px-7 py-3.5 text-sm font-medium text-ivory transition-colors duration-200 hover:bg-mocha"
               >
                 Start Planning Your Day
               </a>

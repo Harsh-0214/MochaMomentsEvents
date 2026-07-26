@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Instrument_Sans } from "next/font/google";
+import { Cormorant_Garamond, Jost } from "next/font/google";
 import { site } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
@@ -14,9 +14,11 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const instrument = Instrument_Sans({
+// Clean geometric sans for body copy and small labels — quieter and more
+// refined against the Cormorant display face
+const jost = Jost({
   subsets: ["latin"],
-  variable: "--font-instrument",
+  variable: "--font-sans",
   display: "swap",
 });
 
@@ -57,7 +59,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${instrument.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
       <body className="font-sans">
         <a
           href="#main"

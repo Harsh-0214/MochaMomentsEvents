@@ -20,7 +20,7 @@ const config: Config = {
       },
       fontFamily: {
         display: ["var(--font-display)", "Georgia", "serif"],
-        sans: ["var(--font-instrument)", "system-ui", "sans-serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       letterSpacing: {
         eyebrow: "0.22em",

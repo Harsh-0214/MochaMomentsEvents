@@ -44,10 +44,8 @@ export function Nav() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
-        scrolled || open
-          ? "bg-espresso/90 shadow-[0_1px_0_0_rgba(243,232,216,0.12)] backdrop-blur-md"
-          : "bg-espresso/85 backdrop-blur-sm"
+      className={`fixed inset-x-0 top-0 z-50 bg-espresso transition-shadow duration-300 ${
+        scrolled || open ? "shadow-[0_1px_0_0_rgba(243,232,216,0.14)]" : ""
       }`}
     >
       <nav
