@@ -26,7 +26,7 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="process" aria-labelledby="process-heading" className="bg-mocha">
+    <section id="process" aria-labelledby="process-heading" className="bg-espresso">
       <div className="mx-auto max-w-page px-5 py-24 sm:px-8 lg:py-32">
         <Reveal>
           <RevealItem>

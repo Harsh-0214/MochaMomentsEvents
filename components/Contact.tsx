@@ -43,9 +43,9 @@ export function Contact() {
   }
 
   const field =
-    "w-full rounded-lg border border-champagne/20 bg-espresso px-4 py-3 text-ivory placeholder:text-champagne/40";
-  const label = "block text-sm font-medium text-ivory";
-  const error = "mt-1.5 text-sm text-[#EFB0A0]";
+    "w-full rounded-lg border border-espresso/20 bg-white px-4 py-3 text-espresso placeholder:text-mocha/45";
+  const label = "block text-sm font-medium text-espresso";
+  const error = "mt-1.5 text-sm text-[#9C3D2E]";
 
   return (
     <section id="contact" aria-labelledby="contact-heading" className="bg-espresso">
@@ -86,19 +86,19 @@ export function Contact() {
           {sent ? (
             <div
               role="status"
-              className="flex flex-col items-center justify-center rounded-2xl border border-champagne/15 bg-mocha/50 p-10 text-center"
+              className="flex flex-col items-center justify-center rounded-2xl bg-ivory p-10 text-center"
             >
               <Image
                 src="/Mocha_Logo.jpg"
                 alt=""
                 width={396}
                 height={396}
-                className="h-20 w-20 rounded-full object-cover ring-1 ring-champagne/30"
+                className="h-20 w-20 rounded-full object-cover ring-1 ring-espresso/15"
               />
-              <h3 className="mt-5 font-display text-3xl font-semibold text-ivory">
+              <h3 className="mt-5 font-display text-3xl font-semibold text-espresso">
                 Your note is on its way
               </h3>
-              <p className="mt-3 max-w-sm leading-relaxed text-champagne/85">
+              <p className="mt-3 max-w-sm leading-relaxed text-mocha">
                 Thank you for sharing your day with us — we&rsquo;ll pour over
                 every word and reply within two business days. Until then, find
                 us on{" "}
@@ -114,7 +114,7 @@ export function Contact() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} noValidate className="rounded-2xl border border-champagne/15 bg-mocha/50 p-6 sm:p-10">
+            <form onSubmit={handleSubmit} noValidate className="rounded-2xl bg-ivory p-6 sm:p-10">
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="sm:col-span-2">
                   <label htmlFor="names" className={label}>
@@ -181,7 +181,7 @@ export function Contact() {
                 <div>
                   <label htmlFor="venue" className={label}>
                     Venue or location{" "}
-                    <span className="font-normal text-champagne/60">(optional)</span>
+                    <span className="font-normal text-mocha/60">(optional)</span>
                   </label>
                   <input
                     id="venue"
@@ -195,7 +195,7 @@ export function Contact() {
                 <div>
                   <label htmlFor="guests" className={label}>
                     Guest count{" "}
-                    <span className="font-normal text-champagne/60">(optional)</span>
+                    <span className="font-normal text-mocha/60">(optional)</span>
                   </label>
                   <input
                     id="guests"
@@ -231,7 +231,7 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="mt-7 w-full rounded-full bg-ivory px-7 py-4 text-sm font-medium text-espresso transition-colors duration-200 hover:bg-champagne sm:w-auto"
+                className="mt-7 w-full rounded-full bg-espresso px-7 py-4 text-sm font-medium text-ivory transition-colors duration-200 hover:bg-mocha sm:w-auto"
               >
                 Send our story
               </button>
