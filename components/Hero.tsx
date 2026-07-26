@@ -44,14 +44,14 @@ export function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[center_35%] lg:object-[center_48%]"
+          className="object-cover object-[center_35%] lg:object-[center_70%]"
         />
       </motion.div>
 
       <div className="relative bg-ivory lg:flex lg:min-h-[100svh] lg:flex-col lg:justify-end lg:bg-transparent lg:pb-24 lg:pt-24">
         {/* On desktop the ivory band bleeds off the left edge and wraps the
-            text, aligned to the page grid; a gold hairline caps its right end */}
-        <div className="max-w-none px-5 py-12 sm:px-8 lg:max-w-[46rem] lg:rounded-r-2xl lg:border-r-2 lg:border-gold/60 lg:bg-ivory lg:py-11 lg:pl-[max(2rem,calc((100vw-72rem)/2+2rem))] lg:pr-14 lg:shadow-[0_24px_70px_-24px_rgba(46,31,23,0.45)]">
+            text with its own even padding; a gold hairline caps its right end */}
+        <div className="max-w-none px-5 py-12 sm:px-8 lg:w-fit lg:max-w-[46rem] lg:rounded-r-2xl lg:border-r-2 lg:border-gold/60 lg:bg-ivory lg:px-14 lg:py-11 lg:shadow-[0_24px_70px_-24px_rgba(46,31,23,0.45)]">
           <div>
           <motion.p {...settle(0.5)} className="eyebrow">
             {site.regions}
