@@ -32,7 +32,7 @@ export function Hero() {
     <section id="top" className="relative pt-[4.5rem]">
       {/* Upper half — the ceremony photo */}
       <motion.div
-        className="relative h-[42svh] min-h-[17rem] lg:h-[54svh]"
+        className="relative h-[40svh] min-h-[16rem] lg:h-[48svh]"
         initial={{ opacity: 0, scale: reduceMotion ? 1 : 1.03 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.1, ease: EASE_OUT }}
@@ -49,8 +49,8 @@ export function Hero() {
 
       {/* Lower half — masthead band */}
       <div className="border-t border-gold/30 bg-ivory">
-        <div className="mx-auto max-w-page px-5 py-11 sm:px-8 lg:py-14">
-          <div className="flex flex-col items-center gap-9 text-center lg:flex-row lg:gap-12 lg:text-left">
+        <div className="mx-auto max-w-page px-5 py-11 font-logo sm:px-8 lg:py-14">
+          <div className="flex flex-col items-center gap-9 text-center lg:flex-row lg:gap-10 lg:text-left">
             <motion.div {...settle(0.45)} className="shrink-0">
               <Image
                 src="/Mocha_Logo.jpg"
@@ -62,21 +62,21 @@ export function Hero() {
               />
             </motion.div>
 
-            <div className="lg:border-l lg:border-gold/30 lg:pl-12">
-              <motion.p {...settle(0.55)} className="eyebrow">
+            <div className="lg:min-w-0 lg:flex-1 lg:border-l lg:border-gold/30 lg:pl-10">
+              <motion.p {...settle(0.55)} className="text-[0.72rem] font-medium uppercase tracking-eyebrow text-gold">
                 {site.regions}
               </motion.p>
               <motion.h1
                 {...settle(0.65)}
-                className="mt-3 font-display text-[1.9rem] font-semibold uppercase leading-[1.15] tracking-[0.12em] text-espresso sm:text-4xl"
+                className="mt-3 text-[1.7rem] font-medium uppercase leading-[1.1] tracking-[0.06em] text-espresso sm:text-[2.15rem]"
               >
                 Mocha Moments Events
               </motion.h1>
               <motion.p
                 {...settle(0.75)}
-                className="mt-4 max-w-xl text-[0.95rem] leading-relaxed text-mocha"
+                className="mt-3 max-w-xl text-[0.95rem] leading-relaxed text-mocha"
               >
-                <em className="font-display text-lg italic text-espresso">
+                <em className="text-lg italic text-espresso">
                   &ldquo;{site.slogan}&rdquo;
                 </em>
                 <span className="mt-1 block">
@@ -88,17 +88,17 @@ export function Hero() {
 
             <motion.div
               {...settle(0.85)}
-              className="flex flex-wrap items-center justify-center gap-5 lg:ml-auto lg:shrink-0 lg:flex-col lg:items-end"
+              className="flex flex-wrap items-center justify-center gap-5 lg:shrink-0 lg:flex-col lg:items-end"
             >
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-full bg-espresso px-7 py-3.5 text-sm font-medium text-ivory transition-colors duration-200 hover:bg-mocha"
+                className="inline-flex items-center gap-2 rounded-full bg-espresso px-6 py-3 text-[0.85rem] font-medium uppercase tracking-[0.08em] text-ivory transition-colors duration-200 hover:bg-mocha"
               >
                 Start Planning Your Day
               </a>
               <a
                 href="#moments"
-                className="inline-flex items-center gap-2 text-sm font-medium text-espresso underline decoration-gold decoration-2 underline-offset-4 transition-colors duration-200 hover:text-mocha"
+                className="inline-flex items-center gap-2 text-[0.85rem] font-medium uppercase tracking-[0.08em] text-espresso underline decoration-gold decoration-2 underline-offset-4 transition-colors duration-200 hover:text-mocha"
               >
                 See the moments
                 <ArrowDown size={15} aria-hidden="true" />

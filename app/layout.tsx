@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Jost } from "next/font/google";
+import { Bodoni_Moda, Cormorant_Garamond, Jost } from "next/font/google";
 import { site } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
@@ -11,6 +11,15 @@ const cormorant = Cormorant_Garamond({
   style: ["normal", "italic"],
   weight: ["400", "500", "600"],
   variable: "--font-display",
+  display: "swap",
+});
+
+// Didone display face matching the logo wordmark's vertical stress, heavy
+// stems, and unbracketed hairline serifs — used for the hero masthead
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-logo",
   display: "swap",
 });
 
@@ -59,7 +68,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${bodoni.variable} ${jost.variable}`}>
       <body className="font-sans">
         <a
           href="#main"
