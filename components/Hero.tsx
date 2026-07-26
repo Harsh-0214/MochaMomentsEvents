@@ -85,29 +85,6 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* The coffee-ring signature, drawn once around the studio roundel */}
-        <motion.div
-          className="absolute bottom-8 right-5 hidden items-center justify-center rounded-full bg-ivory/60 backdrop-blur-[2px] lg:flex"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.0 }}
-        >
-          <svg viewBox="0 0 180 180" className="h-40 w-40 text-gold" aria-hidden="true">
-            <motion.path
-              d="M90 12c40-4 74 26 76 66 2 42-28 76-68 78-42 2-76-28-78-68C18 48 46 18 82 14"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-              initial={reduceMotion ? { pathLength: 1 } : { pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 1.0, delay: 1.05, ease: [0.6, 0.05, 0.2, 1] }}
-            />
-          </svg>
-          <p className="absolute max-w-[7.5rem] text-center font-display text-sm italic leading-snug text-espresso">
-            weddings by {site.founder} · est. {site.established}
-          </p>
-        </motion.div>
       </div>
     </section>
   );
