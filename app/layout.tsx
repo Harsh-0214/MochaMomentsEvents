@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import { Fraunces, Instrument_Sans } from "next/font/google";
+import { Cormorant_Garamond, Instrument_Sans } from "next/font/google";
 import { site } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
-const fraunces = Fraunces({
+// High-contrast elegant serif matching the flared, fashion-forward
+// letterforms of the Mocha Moments wordmark
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  axes: ["opsz", "SOFT", "WONK"],
-  variable: "--font-fraunces",
+  weight: ["400", "500", "600"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -55,7 +57,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${instrument.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${instrument.variable}`}>
       <body className="font-sans">
         <a
           href="#main"

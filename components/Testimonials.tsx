@@ -39,7 +39,7 @@ export function Testimonials() {
           <RevealItem>
             <h2
               id="kind-words-heading"
-              className="mx-auto mt-4 max-w-xl text-center font-display text-3xl font-medium leading-tight text-espresso sm:text-4xl lg:text-5xl"
+              className="mx-auto mt-4 max-w-xl text-center font-display text-4xl font-medium leading-tight text-espresso sm:text-5xl lg:text-[3.6rem]"
             >
               From couples we&rsquo;ll <em className="italic text-gold">never forget</em>
             </h2>
@@ -58,7 +58,7 @@ export function Testimonials() {
               <span aria-hidden="true" className="font-display text-5xl leading-none text-gold">
                 &ldquo;
               </span>
-              <p className="mt-2 flex-1 font-display text-lg italic leading-relaxed text-espresso">
+              <p className="mt-2 flex-1 font-display text-xl italic leading-relaxed text-espresso">
                 {q.quote}
               </p>
               <footer className="mt-6 border-t border-espresso/10 pt-4">

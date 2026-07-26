@@ -36,7 +36,7 @@ export function Services() {
           <RevealItem>
             <h2
               id="services-heading"
-              className="mx-auto mt-4 max-w-2xl text-center font-display text-3xl font-medium leading-tight text-espresso sm:text-4xl lg:text-5xl"
+              className="mx-auto mt-4 max-w-2xl text-center font-display text-4xl font-medium leading-tight text-espresso sm:text-5xl lg:text-[3.6rem]"
             >
               Bay Area wedding planning, <em className="italic text-gold">poured</em> three ways
             </h2>
@@ -56,7 +56,7 @@ export function Services() {
                 aria-hidden="true"
                 className="text-gold"
               />
-              <h3 className="mt-5 font-display text-2xl font-medium text-espresso">
+              <h3 className="mt-5 font-display text-3xl font-semibold text-espresso">
                 {s.title}
               </h3>
               <p className="mt-3 flex-1 text-[0.95rem] leading-relaxed">{s.blurb}</p>

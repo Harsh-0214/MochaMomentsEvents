@@ -13,7 +13,7 @@ const config: Config = {
         sage: "rgb(var(--sage-rgb) / <alpha-value>)",
       },
       fontFamily: {
-        display: ["var(--font-fraunces)", "Georgia", "serif"],
+        display: ["var(--font-display)", "Georgia", "serif"],
         sans: ["var(--font-instrument)", "system-ui", "sans-serif"],
       },
       letterSpacing: {

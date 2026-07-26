@@ -4,14 +4,16 @@
 
 :root {
   --espresso: #2e1f17;
-  --mocha: #4a3222;
+  /* Exact background brown of the Mocha_Logo.jpg lockup — dark surfaces
+     use this so the logo blends seamlessly into them */
+  --mocha: #4b3424;
   --ivory: #fbf6ef;
   --champagne: #f3e8d8;
   --gold: #c9a464;
   --sage: #a8ad91;
   /* RGB channels for Tailwind's <alpha-value> opacity modifiers */
   --espresso-rgb: 46 31 23;
-  --mocha-rgb: 74 50 34;
+  --mocha-rgb: 75 52 36;
   --ivory-rgb: 251 246 239;
   --champagne-rgb: 243 232 216;
   --gold-rgb: 201 164 100;

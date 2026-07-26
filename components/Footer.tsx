@@ -4,16 +4,17 @@ import { site } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="on-dark bg-espresso text-champagne">
+    <footer className="on-dark bg-mocha text-champagne">
       <div className="mx-auto max-w-page px-5 py-16 sm:px-8 lg:py-20">
         <div className="grid gap-12 md:grid-cols-[1.2fr_1fr_1fr]">
           <div>
+            {/* The footer background is the logo's exact brown, so the JPG blends in */}
             <Image
-              src="/logo.svg"
-              alt="Mocha Moments Events logo — cream serif wordmark with coffee-ring mark, est. 2025"
-              width={220}
-              height={110}
-              className="h-auto w-52"
+              src="/Mocha_Logo.jpg"
+              alt="Mocha Moments Events logo — cream serif wordmark with coffee bean illustration, est. 2025, events by Anastasiya Moroz, California"
+              width={396}
+              height={396}
+              className="-ml-5 -mt-6 h-auto w-56"
             />
             <p className="mt-5 max-w-xs font-display text-sm italic leading-relaxed text-champagne/75">
               &ldquo;{site.slogan}&rdquo;

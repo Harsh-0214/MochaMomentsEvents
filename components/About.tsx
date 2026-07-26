@@ -30,7 +30,7 @@ export function About() {
             <RevealItem>
               <h2
                 id="about-heading"
-                className="mt-4 font-display text-3xl font-medium leading-tight text-espresso sm:text-4xl lg:text-5xl"
+                className="mt-4 font-display text-4xl font-medium leading-tight text-espresso sm:text-5xl lg:text-[3.6rem]"
               >
                 Weddings by <em className="italic text-gold">Anastasiya Moroz</em>,
                 rooted in the Bay Area

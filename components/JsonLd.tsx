@@ -34,7 +34,7 @@ export function JsonLd() {
         slogan: site.slogan,
         description: site.description,
         url: site.url,
-        logo: `${site.url}/logo.svg`,
+        logo: `${site.url}/Mocha_Logo.jpg`,
         founder: { "@type": "Person", name: site.founder },
         foundingDate: site.established,
         email: site.email,

@@ -70,7 +70,7 @@ export function Nav() {
             />
             <circle cx="32" cy="35" r="7" fill="var(--gold)" />
           </svg>
-          <span className="font-display text-lg font-semibold tracking-wide text-espresso">
+          <span className="font-display text-base font-semibold uppercase tracking-[0.22em] text-espresso sm:text-lg">
             Mocha Moments
           </span>
         </a>

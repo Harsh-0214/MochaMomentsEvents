@@ -39,7 +39,7 @@ export function Hero() {
           </motion.p>
           <motion.h1
             {...settle(0.28)}
-            className="mt-5 max-w-xl font-display text-[2.6rem] font-medium leading-[1.08] text-espresso sm:text-6xl lg:text-[4.2rem]"
+            className="mt-5 max-w-xl font-display text-5xl font-medium leading-[1.05] text-espresso sm:text-7xl lg:text-[4.9rem]"
           >
             Pouring love into{" "}
             <em className="font-light italic text-gold">every detail</em> of
@@ -129,7 +129,7 @@ export function Hero() {
 
           <motion.p
             {...settle(0.9)}
-            className="mt-6 text-center font-display text-sm italic text-mocha/70"
+            className="mt-6 text-center font-display text-base italic text-mocha/70"
           >
             weddings by {site.founder} · est. {site.established}
           </motion.p>

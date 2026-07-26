@@ -26,7 +26,7 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="process" aria-labelledby="process-heading" className="bg-espresso on-dark">
+    <section id="process" aria-labelledby="process-heading" className="bg-mocha on-dark">
       <div className="mx-auto max-w-page px-5 py-24 sm:px-8 lg:py-32">
         <Reveal>
           <RevealItem>
@@ -35,7 +35,7 @@ export function Process() {
           <RevealItem>
             <h2
               id="process-heading"
-              className="mt-4 max-w-2xl font-display text-3xl font-medium leading-tight text-ivory sm:text-4xl lg:text-5xl"
+              className="mt-4 max-w-2xl font-display text-4xl font-medium leading-tight text-ivory sm:text-5xl lg:text-[3.6rem]"
             >
               From first hello to last dance,{" "}
               <em className="italic text-gold">step by step</em>
@@ -52,7 +52,7 @@ export function Process() {
               >
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-4 font-display text-xl font-medium text-ivory">
+              <h3 className="mt-4 font-display text-2xl font-semibold text-ivory">
                 {step.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-champagne/80">

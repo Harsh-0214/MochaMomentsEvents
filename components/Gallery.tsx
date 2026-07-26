@@ -63,7 +63,7 @@ export function Gallery() {
           <RevealItem>
             <h2
               id="moments-heading"
-              className="mx-auto mt-4 max-w-2xl text-center font-display text-3xl font-medium leading-tight text-espresso sm:text-4xl lg:text-5xl"
+              className="mx-auto mt-4 max-w-2xl text-center font-display text-4xl font-medium leading-tight text-espresso sm:text-5xl lg:text-[3.6rem]"
             >
               Real weddings across NorCal{" "}
               <em className="italic text-gold">&amp; beyond</em>

@@ -54,7 +54,7 @@ export function Contact() {
             <p className="eyebrow">Inquire</p>
             <h2
               id="contact-heading"
-              className="mt-4 font-display text-3xl font-medium leading-tight text-espresso sm:text-4xl lg:text-5xl"
+              className="mt-4 font-display text-4xl font-medium leading-tight text-espresso sm:text-5xl lg:text-[3.6rem]"
             >
               Let&rsquo;s plan your <em className="italic text-gold">day</em>
             </h2>
@@ -88,7 +88,7 @@ export function Contact() {
               className="flex flex-col items-center justify-center rounded-2xl bg-ivory p-10 text-center"
             >
               <Heart size={30} strokeWidth={1.5} aria-hidden="true" className="text-gold" />
-              <h3 className="mt-5 font-display text-2xl font-medium text-espresso">
+              <h3 className="mt-5 font-display text-3xl font-semibold text-espresso">
                 Your note is on its way
               </h3>
               <p className="mt-3 max-w-sm leading-relaxed">
