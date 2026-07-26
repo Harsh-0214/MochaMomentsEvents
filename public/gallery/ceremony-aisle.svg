@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="1000" viewBox="0 0 750 1000">
+    <defs><linearGradient id="a5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FBF6EF"/><stop offset="1" stop-color="#E5D9C0"/></linearGradient>
+  <filter id="gg5"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="n"/>
+  <feColorMatrix in="n" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0"/>
+  <feComposite operator="over" in2="SourceGraphic"/></filter></defs>
+    <rect width="750" height="1000" fill="url(#a5)"/>
+    <path d="M 285 1000 L 345 420 L 405 420 L 465 1000 Z" fill="#F3E8D8"/>
+    
+      <circle cx="330" cy="420" r="10" fill="#FBF6EF" opacity="0.85"/>
+      <circle cx="420.00000000000006" cy="420" r="10" fill="#A8AD91" opacity="0.85"/>
+      <circle cx="307.5" cy="500" r="12" fill="#A8AD91" opacity="0.85"/>
+      <circle cx="442.50000000000006" cy="500" r="12" fill="#FBF6EF" opacity="0.85"/>
+      <circle cx="285" cy="580" r="14" fill="#FBF6EF" opacity="0.85"/>
+      <circle cx="465.00000000000006" cy="580" r="14" fill="#A8AD91" opacity="0.85"/>
+      <circle cx="262.5" cy="660" r="16" fill="#A8AD91" opacity="0.85"/>
+      <circle cx="487.5" cy="660" r="16" fill="#FBF6EF" opacity="0.85"/>
+      <circle cx="240" cy="740" r="18" fill="#FBF6EF" opacity="0.85"/>
+      <circle cx="510.00000000000006" cy="740" r="18" fill="#A8AD91" opacity="0.85"/>
+    <path d="M 262.5 400 A 112.5 112.5 0 0 1 487.5 400" stroke="#C9A464" stroke-width="3" fill="none" opacity="0.5"/>
+    <rect width="750" height="1000" filter="url(#gg5)" fill="none"/></svg>

@@ -1,54 +1,93 @@
-import Image from "next/image";
 import { Reveal, RevealItem } from "@/components/Reveal";
+import { StickyScrollGallery, type GalleryItem } from "@/components/ui/sticky-scroll";
 
 /**
  * Gallery entries follow the couple-initials convention from the studio's
  * Instagram highlights (R&E, D&D, V&A, D&M, N&D). To swap in real
  * photography, replace `src` with the real image path and update `alt` —
  * keep alt text descriptive and location-tagged for local SEO.
+ *
+ * Order matters for the sticky layout: items 1-5 scroll on the left,
+ * 6-8 pin in the center column, 9-13 scroll on the right.
  */
-const moments = [
+const moments: GalleryItem[] = [
   {
     src: "/gallery/re-vineyard-ceremony.svg",
     alt: "NorCal vineyard hillside wedding ceremony with white floral arch at golden hour",
     couple: "R & E",
     detail: "Vineyard ceremony, golden hour",
-    tall: true,
   },
   {
-    src: "/gallery/dd-ballroom-reception.svg",
-    alt: "Softly lit Bay Area ballroom wedding reception with string lights and candlelit tables",
-    couple: "D & D",
-    detail: "Candlelit ballroom reception",
-    tall: false,
+    src: "/gallery/tablescape-candles.svg",
+    alt: "Candlelit ivory tablescape at a Bay Area wedding reception",
+    couple: "R & E",
+    detail: "Candlelit tablescape",
   },
   {
     src: "/gallery/va-first-dance.svg",
     alt: "First dance on a dry-ice cloud at a California wedding reception",
     couple: "V & A",
     detail: "First dance on a cloud",
-    tall: false,
   },
   {
-    src: "/gallery/dm-sparkler-exit.svg",
-    alt: "Newlyweds' sparkler exit at a Bay Area wedding at night",
-    couple: "D & M",
-    detail: "Sparkler send-off",
-    tall: true,
-  },
-  {
-    src: "/gallery/nd-dessert-table.svg",
-    alt: "Mini dessert table under string lights at a NorCal wedding reception",
-    couple: "N & D",
-    detail: "The sweetest table",
-    tall: false,
+    src: "/gallery/bridal-bouquet.svg",
+    alt: "White garden rose and greenery bridal bouquet by a Bay Area wedding florist",
+    couple: "D & D",
+    detail: "Garden rose bouquet",
   },
   {
     src: "/gallery/re-cypress-lawn.svg",
     alt: "Cypress-lined golf course lawn wedding venue in Northern California",
     couple: "R & E",
     detail: "Cypress-lined vows",
-    tall: false,
+  },
+  {
+    src: "/gallery/dd-ballroom-reception.svg",
+    alt: "Softly lit Bay Area ballroom wedding reception with string lights and candlelit tables",
+    couple: "D & D",
+    detail: "Candlelit ballroom reception",
+  },
+  {
+    src: "/gallery/dm-sparkler-exit.svg",
+    alt: "Newlyweds' sparkler exit at a Bay Area wedding at night",
+    couple: "D & M",
+    detail: "Sparkler send-off",
+  },
+  {
+    src: "/gallery/golden-hour-portrait.svg",
+    alt: "Golden-hour couple portrait at a NorCal hillside wedding venue",
+    couple: "N & D",
+    detail: "Golden-hour portraits",
+  },
+  {
+    src: "/gallery/nd-dessert-table.svg",
+    alt: "Mini dessert table under string lights at a NorCal wedding reception",
+    couple: "N & D",
+    detail: "The sweetest table",
+  },
+  {
+    src: "/gallery/ceremony-aisle.svg",
+    alt: "Petal-lined wedding ceremony aisle with white florals in the Bay Area",
+    couple: "V & A",
+    detail: "The walk down the aisle",
+  },
+  {
+    src: "/gallery/wedding-cake.svg",
+    alt: "Three-tier ivory wedding cake with gold and sage details at a California reception",
+    couple: "D & M",
+    detail: "The cutting of the cake",
+  },
+  {
+    src: "/gallery/dance-floor-lights.svg",
+    alt: "String-lit open-air dance floor at a NorCal wedding reception",
+    couple: "D & D",
+    detail: "Dancing under the lights",
+  },
+  {
+    src: "/gallery/gold-rings.svg",
+    alt: "Gold wedding bands styled on champagne linen, Bay Area wedding detail photo",
+    couple: "R & E",
+    detail: "The rings",
   },
 ];
 
@@ -71,32 +110,9 @@ export function Gallery() {
           </RevealItem>
         </Reveal>
 
-        <Reveal className="mt-16 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3" stagger={0.06}>
-          {moments.map((m) => (
-            <RevealItem
-              as="figure"
-              key={m.src}
-              className={`group relative overflow-hidden rounded-xl ${
-                m.tall ? "row-span-2 aspect-[3/5] sm:aspect-auto" : "aspect-[3/4]"
-              }`}
-            >
-              <Image
-                src={m.src}
-                alt={m.alt}
-                fill
-                loading="lazy"
-                sizes="(min-width: 1024px) 33vw, 50vw"
-                className="object-cover gallery-zoom"
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-espresso/80 via-espresso/30 to-transparent px-4 pb-4 pt-12 text-ivory">
-                <span className="block font-display text-xl italic">{m.couple}</span>
-                <span className="block text-xs uppercase tracking-eyebrow text-champagne/90">
-                  {m.detail}
-                </span>
-              </figcaption>
-            </RevealItem>
-          ))}
-        </Reveal>
+        <div className="mt-16">
+          <StickyScrollGallery items={moments} />
+        </div>
       </div>
     </section>
   );
