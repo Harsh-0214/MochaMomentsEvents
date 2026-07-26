@@ -32,10 +32,8 @@ sitemap, and JSON-LD stay correct.
 
 - **Photos** — replace the SVG placeholders in `public/` and `public/gallery/`
   and update the `moments` array in `components/Gallery.tsx` (keep alt text
-  descriptive and location-tagged for local SEO). The hero photo
-  (`public/Screenshot 2026-07-26 014224.png`) is a 737px screenshot — swap it
-  for the original-resolution export before launch so it stays sharp on large
-  displays.
+  descriptive and location-tagged for local SEO). The hero photo is
+  `public/Wedding photo backdrop.png`.
 - **Logo** — drop the real `Mocha_Logo.jpg` into `public/` and point
   `components/Footer.tsx` at it (an SVG lockup ships as `public/logo.svg`).
 - **Testimonials** — replace the placeholder quotes in

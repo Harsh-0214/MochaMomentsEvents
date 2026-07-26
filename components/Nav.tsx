@@ -47,7 +47,7 @@ export function Nav() {
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
         scrolled || open
           ? "bg-espresso/90 shadow-[0_1px_0_0_rgba(243,232,216,0.12)] backdrop-blur-md"
-          : "bg-gradient-to-b from-espresso/70 to-transparent"
+          : "bg-espresso/85 backdrop-blur-sm"
       }`}
     >
       <nav
