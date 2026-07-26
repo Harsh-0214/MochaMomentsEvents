@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Instagram, MapPin, Heart } from "lucide-react";
+import Image from "next/image";
+import { Instagram, MapPin } from "lucide-react";
 import { site } from "@/lib/site";
 
 type Errors = Partial<Record<"names" | "email" | "date" | "message", string>>;
@@ -42,23 +43,23 @@ export function Contact() {
   }
 
   const field =
-    "w-full rounded-lg border border-espresso/15 bg-ivory px-4 py-3 text-espresso placeholder:text-mocha/45";
-  const label = "block text-sm font-medium text-espresso";
-  const error = "mt-1.5 text-sm text-[#9C3D2E]";
+    "w-full rounded-lg border border-champagne/20 bg-espresso px-4 py-3 text-ivory placeholder:text-champagne/40";
+  const label = "block text-sm font-medium text-ivory";
+  const error = "mt-1.5 text-sm text-[#EFB0A0]";
 
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="bg-champagne/60">
+    <section id="contact" aria-labelledby="contact-heading" className="bg-espresso">
       <div className="mx-auto max-w-page px-5 py-24 sm:px-8 lg:py-32">
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div>
             <p className="eyebrow">Inquire</p>
             <h2
               id="contact-heading"
-              className="mt-4 font-display text-4xl font-medium leading-tight text-espresso sm:text-5xl lg:text-[3.6rem]"
+              className="mt-4 font-display text-4xl font-medium leading-tight text-ivory sm:text-5xl lg:text-[3.6rem]"
             >
               Let&rsquo;s plan your <em className="italic text-gold">day</em>
             </h2>
-            <p className="mt-6 max-w-md leading-relaxed">
+            <p className="mt-6 max-w-md leading-relaxed text-champagne/85">
               Tell us about your wedding or celebration — the date, the dream,
               the details. Whether you need a planner from day one or a
               coordinator for the final pour, we&rsquo;d love to hear your story.
@@ -74,7 +75,7 @@ export function Contact() {
                   href={site.instagramUrl}
                   target="_blank"
                   rel="me noopener"
-                  className="underline decoration-gold/50 underline-offset-4 transition-colors duration-200 hover:text-espresso"
+                  className="underline decoration-gold/50 underline-offset-4 transition-colors duration-200 hover:text-ivory"
                 >
                   {site.instagramHandle}
                 </a>
@@ -85,13 +86,19 @@ export function Contact() {
           {sent ? (
             <div
               role="status"
-              className="flex flex-col items-center justify-center rounded-2xl bg-ivory p-10 text-center"
+              className="flex flex-col items-center justify-center rounded-2xl border border-champagne/15 bg-mocha/50 p-10 text-center"
             >
-              <Heart size={30} strokeWidth={1.5} aria-hidden="true" className="text-gold" />
-              <h3 className="mt-5 font-display text-3xl font-semibold text-espresso">
+              <Image
+                src="/Mocha_Logo.jpg"
+                alt=""
+                width={396}
+                height={396}
+                className="h-20 w-20 rounded-full object-cover ring-1 ring-champagne/30"
+              />
+              <h3 className="mt-5 font-display text-3xl font-semibold text-ivory">
                 Your note is on its way
               </h3>
-              <p className="mt-3 max-w-sm leading-relaxed">
+              <p className="mt-3 max-w-sm leading-relaxed text-champagne/85">
                 Thank you for sharing your day with us — we&rsquo;ll pour over
                 every word and reply within two business days. Until then, find
                 us on{" "}
@@ -107,7 +114,7 @@ export function Contact() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} noValidate className="rounded-2xl bg-ivory p-6 sm:p-10">
+            <form onSubmit={handleSubmit} noValidate className="rounded-2xl border border-champagne/15 bg-mocha/50 p-6 sm:p-10">
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="sm:col-span-2">
                   <label htmlFor="names" className={label}>
@@ -174,7 +181,7 @@ export function Contact() {
                 <div>
                   <label htmlFor="venue" className={label}>
                     Venue or location{" "}
-                    <span className="font-normal text-mocha/60">(optional)</span>
+                    <span className="font-normal text-champagne/60">(optional)</span>
                   </label>
                   <input
                     id="venue"
@@ -188,7 +195,7 @@ export function Contact() {
                 <div>
                   <label htmlFor="guests" className={label}>
                     Guest count{" "}
-                    <span className="font-normal text-mocha/60">(optional)</span>
+                    <span className="font-normal text-champagne/60">(optional)</span>
                   </label>
                   <input
                     id="guests"
@@ -224,7 +231,7 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="mt-7 w-full rounded-full bg-espresso px-7 py-4 text-sm font-medium text-ivory transition-colors duration-200 hover:bg-mocha sm:w-auto"
+                className="mt-7 w-full rounded-full bg-ivory px-7 py-4 text-sm font-medium text-espresso transition-colors duration-200 hover:bg-champagne sm:w-auto"
               >
                 Send our story
               </button>

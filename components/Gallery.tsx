@@ -54,7 +54,7 @@ const moments = [
 
 export function Gallery() {
   return (
-    <section id="moments" aria-labelledby="moments-heading" className="bg-champagne/60">
+    <section id="moments" aria-labelledby="moments-heading" className="bg-espresso">
       <div className="mx-auto max-w-page px-5 py-24 sm:px-8 lg:py-32">
         <Reveal>
           <RevealItem>
@@ -63,7 +63,7 @@ export function Gallery() {
           <RevealItem>
             <h2
               id="moments-heading"
-              className="mx-auto mt-4 max-w-2xl text-center font-display text-4xl font-medium leading-tight text-espresso sm:text-5xl lg:text-[3.6rem]"
+              className="mx-auto mt-4 max-w-2xl text-center font-display text-4xl font-medium leading-tight text-ivory sm:text-5xl lg:text-[3.6rem]"
             >
               Real weddings across NorCal{" "}
               <em className="italic text-gold">&amp; beyond</em>

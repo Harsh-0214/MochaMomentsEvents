@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Instagram, Menu, X } from "lucide-react";
 import { site } from "@/lib/site";
 
@@ -45,32 +46,24 @@ export function Nav() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
         scrolled || open
-          ? "bg-ivory/90 shadow-[0_1px_0_0_rgba(46,31,23,0.08)] backdrop-blur-md"
-          : "bg-transparent"
+          ? "bg-espresso/90 shadow-[0_1px_0_0_rgba(243,232,216,0.12)] backdrop-blur-md"
+          : "bg-gradient-to-b from-espresso/70 to-transparent"
       }`}
     >
       <nav
         aria-label="Main"
         className="mx-auto flex h-[4.5rem] max-w-page items-center justify-between px-5 sm:px-8"
       >
-        <a href="#top" className="group flex items-center gap-3">
-          <svg
-            width="30"
-            height="30"
-            viewBox="0 0 64 64"
-            aria-hidden="true"
-            className="text-espresso transition-transform duration-300 ease-out group-hover:rotate-[18deg]"
-          >
-            <path
-              d="M32 10c9.8-1.2 23 7 24.8 20.8C58.6 45.2 48.2 58.4 34.4 59.6 20.8 60.8 8.4 51 6.6 37.2 5 25 14.6 13.2 27.4 11.4"
-              stroke="currentColor"
-              strokeWidth="3.2"
-              strokeLinecap="round"
-              fill="none"
-            />
-            <circle cx="32" cy="35" r="7" fill="var(--gold)" />
-          </svg>
-          <span className="font-display text-base font-semibold uppercase tracking-[0.22em] text-espresso sm:text-lg">
+        <a href="#top" className="flex items-center gap-3">
+          <Image
+            src="/Mocha_Logo.jpg"
+            alt=""
+            width={396}
+            height={396}
+            className="h-11 w-11 rounded-full object-cover ring-1 ring-champagne/25"
+            priority
+          />
+          <span className="font-display text-base font-semibold uppercase tracking-[0.22em] text-ivory sm:text-lg">
             Mocha Moments
           </span>
         </a>
@@ -81,8 +74,8 @@ export function Nav() {
               key={l.id}
               href={l.href}
               aria-current={active === l.id ? "true" : undefined}
-              className={`relative text-sm transition-colors duration-200 hover:text-espresso ${
-                active === l.id ? "text-espresso" : "text-mocha/80"
+              className={`relative text-sm transition-colors duration-200 hover:text-ivory ${
+                active === l.id ? "text-ivory" : "text-champagne/75"
               }`}
             >
               {l.label}
@@ -99,7 +92,7 @@ export function Nav() {
             target="_blank"
             rel="me noopener"
             aria-label={`Follow ${site.name} on Instagram`}
-            className="text-espresso transition-colors duration-200 hover:text-gold"
+            className="text-ivory transition-colors duration-200 hover:text-gold"
           >
             <Instagram size={19} strokeWidth={1.75} aria-hidden="true" />
           </a>
@@ -107,7 +100,7 @@ export function Nav() {
 
         <button
           type="button"
-          className="text-espresso lg:hidden"
+          className="text-ivory lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -118,7 +111,7 @@ export function Nav() {
       </nav>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-espresso/10 px-5 pb-6 pt-2 lg:hidden">
+        <div id="mobile-menu" className="border-t border-champagne/15 px-5 pb-6 pt-2 lg:hidden">
           <ul className="flex flex-col">
             {links.map((l) => (
               <li key={l.id}>
@@ -126,7 +119,7 @@ export function Nav() {
                   href={l.href}
                   onClick={() => setOpen(false)}
                   className={`block py-3 font-display text-xl ${
-                    active === l.id ? "text-gold" : "text-espresso"
+                    active === l.id ? "text-gold" : "text-ivory"
                   }`}
                 >
                   {l.label}
@@ -138,7 +131,7 @@ export function Nav() {
             href={site.instagramUrl}
             target="_blank"
             rel="me noopener"
-            className="mt-3 inline-flex items-center gap-2 text-sm text-mocha"
+            className="mt-3 inline-flex items-center gap-2 text-sm text-champagne"
           >
             <Instagram size={17} strokeWidth={1.75} aria-hidden="true" />
             {site.instagramHandle}
