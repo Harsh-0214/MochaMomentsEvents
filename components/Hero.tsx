@@ -49,7 +49,9 @@ export function Hero() {
       </motion.div>
 
       <div className="relative bg-ivory lg:mx-auto lg:flex lg:min-h-[100svh] lg:max-w-page lg:flex-col lg:justify-end lg:bg-transparent lg:pb-20 lg:pt-24">
-        <div className="max-w-none px-5 py-12 sm:px-8 lg:max-w-xl lg:rounded-2xl lg:bg-ivory/85 lg:p-9 lg:shadow-[0_20px_60px_-20px_rgba(46,31,23,0.35)] lg:backdrop-blur-md">
+        {/* Styled like wedding stationery: solid ivory card with a thin gold keyline */}
+        <div className="max-w-none px-5 py-12 sm:px-8 lg:max-w-xl lg:rounded-sm lg:bg-ivory lg:p-3 lg:shadow-[0_24px_70px_-24px_rgba(46,31,23,0.45)]">
+          <div className="lg:rounded-[1px] lg:border lg:border-gold/50 lg:px-8 lg:py-9">
           <motion.p {...settle(0.5)} className="eyebrow">
             {site.regions}
           </motion.p>
@@ -83,8 +85,8 @@ export function Hero() {
               <ArrowDown size={15} aria-hidden="true" />
             </a>
           </motion.div>
+          </div>
         </div>
-
       </div>
     </section>
   );
