@@ -8,10 +8,10 @@ import { site } from "@/lib/site";
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 
 /**
- * Grand centered hero: the ceremony aisle photo fills the viewport with the
- * white floral altar centered, and a stationery-style title card carrying
- * the studio name sits beneath it over the petal-lined aisle. On mobile the
- * photo stands alone and the card content follows on an ivory block below.
+ * Hero: the ceremony photo starts below the fixed nav and fills the rest of
+ * the viewport (scrolling slides it under the nav). An arched title card —
+ * a semicircle dome echoing a ceremony arch — sits at the top of the photo
+ * on desktop; on mobile the same card flows below the photo as a block.
  */
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -24,17 +24,16 @@ export function Hero() {
           transition: { duration: 0.5, delay },
         }
       : {
-          initial: { opacity: 0, y: 22 },
+          initial: { opacity: 0, y: 18 },
           animate: { opacity: 1, y: 0 },
           transition: { duration: 0.55, delay, ease: EASE_OUT },
         };
 
   return (
     <section id="top" className="relative">
-      {/* The photo shows at near-full height so the centered floral altar
-          stays fully visible; the title card overlaps only the aisle below */}
+      {/* Photo begins below the 4.5rem fixed nav and fills the viewport */}
       <motion.div
-        className="relative h-[58svh] min-h-[22rem] pt-[4.5rem] lg:h-[92svh] lg:pt-0"
+        className="relative mt-[4.5rem] h-[58svh] min-h-[22rem] lg:h-[calc(100svh-4.5rem)]"
         initial={{ opacity: 0, scale: reduceMotion ? 1 : 1.04 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.1, ease: EASE_OUT }}
@@ -49,29 +48,28 @@ export function Hero() {
         />
       </motion.div>
 
-      <div className="relative bg-ivory lg:-mt-56 lg:flex lg:justify-center lg:bg-transparent lg:px-8 lg:pb-6">
-        {/* Grand stationery title card — studio name front and center */}
-        <div className="max-w-none px-5 py-12 text-center sm:px-8 lg:w-full lg:max-w-2xl lg:rounded-sm lg:bg-ivory lg:p-3 lg:shadow-[0_30px_80px_-28px_rgba(46,31,23,0.55)]">
-          <div className="lg:rounded-[1px] lg:border lg:border-gold/55 lg:px-10 lg:py-10">
+      {/* Single card instance: block below the photo on mobile, arched
+          overlay at the top of the photo from lg up */}
+      <div className="bg-ivory px-5 py-12 sm:px-8 lg:absolute lg:inset-x-0 lg:top-[4.5rem] lg:flex lg:justify-center lg:bg-transparent lg:px-8 lg:py-0">
+        <div className="text-center lg:w-full lg:max-w-lg lg:rounded-b-sm lg:rounded-t-full lg:bg-ivory/95 lg:p-2.5 lg:pb-3 lg:shadow-[0_24px_70px_-24px_rgba(46,31,23,0.5)] lg:backdrop-blur-sm">
+          <div className="lg:rounded-b-[1px] lg:rounded-t-full lg:border lg:border-gold/55 lg:px-9 lg:pb-8 lg:pt-24">
             <motion.p {...settle(0.45)} className="eyebrow">
               {site.regions}
             </motion.p>
             <motion.h1
               {...settle(0.58)}
-              className="mt-5 font-display text-[2.6rem] font-semibold uppercase leading-[1.02] tracking-[0.1em] text-espresso sm:text-6xl lg:text-[4.2rem]"
+              className="mt-4 font-display text-[2rem] font-semibold uppercase leading-[1.12] tracking-[0.1em] text-espresso sm:text-4xl"
             >
               Mocha Moments
-              <span className="mt-2 block font-normal normal-case italic tracking-normal text-gold lg:text-[2.6rem]">
-                Events
-              </span>
+              <span className="mt-1 block text-gold">Events</span>
             </motion.h1>
             <motion.div
               {...settle(0.7)}
               aria-hidden="true"
-              className="mx-auto mt-6 flex max-w-xs items-center gap-4"
+              className="mx-auto mt-5 flex max-w-[15rem] items-center gap-4"
             >
               <span className="h-px flex-1 bg-gold/50" />
-              <svg width="18" height="18" viewBox="0 0 22 22" fill="none" className="text-gold">
+              <svg width="16" height="16" viewBox="0 0 22 22" fill="none" className="text-gold">
                 <path
                   d="M11 2.2c3.4-.4 8 2.4 8.6 7.2.6 5-3 9.6-7.8 10-4.7.4-9-3-9.6-7.8C1.6 7 5 2.9 9.4 2.3"
                   stroke="currentColor"
@@ -83,7 +81,7 @@ export function Hero() {
             </motion.div>
             <motion.p
               {...settle(0.8)}
-              className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-mocha sm:text-lg"
+              className="mx-auto mt-5 max-w-md text-[0.95rem] leading-relaxed text-mocha"
             >
               <em className="font-display italic text-espresso">
                 &ldquo;{site.slogan}&rdquo;
@@ -93,11 +91,11 @@ export function Hero() {
             </motion.p>
             <motion.div
               {...settle(0.92)}
-              className="mt-8 flex flex-wrap items-center justify-center gap-5"
+              className="mt-6 flex flex-wrap items-center justify-center gap-4"
             >
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-full bg-espresso px-7 py-3.5 text-sm font-medium text-ivory transition-colors duration-200 hover:bg-mocha"
+                className="inline-flex items-center gap-2 rounded-full bg-espresso px-6 py-3 text-sm font-medium text-ivory transition-colors duration-200 hover:bg-mocha"
               >
                 Start Planning Your Day
               </a>
