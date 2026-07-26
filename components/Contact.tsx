@@ -7,39 +7,57 @@ import { site } from "@/lib/site";
 
 type Errors = Partial<Record<"names" | "email" | "date" | "message", string>>;
 
+function validate(form: HTMLFormElement): Errors {
+  const data = new FormData(form);
+  const next: Errors = {};
+
+  if (!String(data.get("names") ?? "").trim()) {
+    next.names = "Please tell us your names.";
+  }
+  const email = String(data.get("email") ?? "").trim();
+  if (!email) {
+    next.email = "We need an email to write back to.";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    next.email = "That email doesn't look quite right.";
+  }
+  if (!String(data.get("date") ?? "").trim()) {
+    next.date = "An approximate date is fine!";
+  }
+  if (!String(data.get("message") ?? "").trim()) {
+    next.message = "Tell us a little about your day.";
+  }
+  return next;
+}
+
 export function Contact() {
   const [errors, setErrors] = useState<Errors>({});
+  const [submitted, setSubmitted] = useState(false);
   const [sent, setSent] = useState(false);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    const next: Errors = {};
-
-    if (!String(data.get("names") ?? "").trim()) {
-      next.names = "Please tell us your names.";
-    }
-    const email = String(data.get("email") ?? "").trim();
-    if (!email) {
-      next.email = "We need an email to write back to.";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      next.email = "That email doesn't look quite right.";
-    }
-    if (!String(data.get("date") ?? "").trim()) {
-      next.date = "An approximate date is fine!";
-    }
-    if (!String(data.get("message") ?? "").trim()) {
-      next.message = "Tell us a little about your day.";
-    }
-
+    setSubmitted(true);
+    const next = validate(e.currentTarget);
     setErrors(next);
-    if (Object.keys(next).length > 0) return;
+
+    if (Object.keys(next).length > 0) {
+      // Send focus to the first field that needs attention
+      const firstKey = Object.keys(next)[0];
+      e.currentTarget.querySelector<HTMLElement>(`#${firstKey}`)?.focus();
+      return;
+    }
 
     // Plug-in point for a real backend: POST this FormData to an API route
     // (app/api/inquire/route.ts) that relays it via an email service like
     // Resend. Client-side validation above stays as-is.
     setSent(true);
+  }
+
+  // Once they have tried to submit, clear each error the moment it is fixed
+  // rather than making them submit again to find out.
+  function handleChange(e: FormEvent<HTMLFormElement>) {
+    if (!submitted) return;
+    setErrors(validate(e.currentTarget));
   }
 
   const field =
@@ -52,7 +70,7 @@ export function Contact() {
       <div className="mx-auto max-w-page px-5 py-24 sm:px-8 lg:py-32">
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div>
-            <p className="eyebrow">Inquire</p>
+            <p className="eyebrow text-gold">Inquire</p>
             <h2
               id="contact-heading"
               className="mt-4 font-display text-4xl font-medium leading-tight text-ivory sm:text-5xl lg:text-[3.6rem]"
@@ -114,7 +132,7 @@ export function Contact() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} noValidate className="rounded-2xl bg-ivory p-6 sm:p-10">
+            <form onSubmit={handleSubmit} onChange={handleChange} noValidate className="rounded-2xl bg-ivory p-6 sm:p-10">
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="sm:col-span-2">
                   <label htmlFor="names" className={label}>
@@ -231,7 +249,7 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="mt-7 w-full rounded-full bg-espresso px-7 py-4 text-sm font-medium text-ivory transition-colors duration-200 hover:bg-mocha sm:w-auto"
+                className="press mt-7 w-full rounded-full bg-espresso px-7 py-4 text-sm font-medium text-ivory hover:bg-mocha sm:w-auto"
               >
                 Send our story
               </button>

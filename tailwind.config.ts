@@ -16,6 +16,7 @@ const config: Config = {
         ivory: "rgb(var(--ivory-rgb) / <alpha-value>)",
         champagne: "rgb(var(--champagne-rgb) / <alpha-value>)",
         gold: "rgb(var(--gold-rgb) / <alpha-value>)",
+        "gold-deep": "rgb(var(--gold-deep-rgb) / <alpha-value>)",
         sage: "rgb(var(--sage-rgb) / <alpha-value>)",
       },
       fontFamily: {

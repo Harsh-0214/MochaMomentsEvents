@@ -30,7 +30,7 @@ export function Process() {
       <div className="mx-auto max-w-page px-5 py-24 sm:px-8 lg:py-32">
         <Reveal>
           <RevealItem>
-            <p className="eyebrow">How it works</p>
+            <p className="eyebrow text-gold">How it works</p>
           </RevealItem>
           <RevealItem>
             <h2

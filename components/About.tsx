@@ -33,7 +33,7 @@ export function About() {
 
           <div>
             <RevealItem>
-              <p className="eyebrow">Meet your NorCal wedding planner</p>
+              <p className="eyebrow text-gold">Meet your NorCal wedding planner</p>
             </RevealItem>
             <RevealItem>
               <h2

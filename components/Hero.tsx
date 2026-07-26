@@ -23,9 +23,9 @@ export function Hero() {
           transition: { duration: 0.5, delay },
         }
       : {
-          initial: { opacity: 0, y: 18 },
-          animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.55, delay, ease: EASE_OUT },
+          initial: { opacity: 0, transform: "translateY(14px)" },
+          animate: { opacity: 1, transform: "translateY(0px)" },
+          transition: { duration: 0.42, delay, ease: EASE_OUT },
         };
 
   return (
@@ -35,7 +35,7 @@ export function Hero() {
         className="relative h-[40svh] min-h-[16rem] lg:h-[48svh]"
         initial={{ opacity: 0, scale: reduceMotion ? 1 : 1.03 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.1, ease: EASE_OUT }}
+        transition={{ duration: 0.8, ease: EASE_OUT }}
       >
         <Image
           src="/Hero_Mocha.png"
@@ -51,7 +51,7 @@ export function Hero() {
       <div className="border-t border-gold/30 bg-ivory">
         <div className="mx-auto max-w-page px-5 py-11 font-logo sm:px-8 lg:py-14">
           <div className="flex flex-col items-center gap-9 text-center lg:flex-row lg:gap-10 lg:text-left">
-            <motion.div {...settle(0.45)} className="shrink-0">
+            <motion.div {...settle(0.12)} className="shrink-0">
               <Image
                 src="/Mocha_Logo.jpg"
                 alt="Mocha Moments Events logo — cream serif wordmark with coffee bean illustration, est. 2025, events by Anastasiya Moroz, California"
@@ -63,17 +63,17 @@ export function Hero() {
             </motion.div>
 
             <div className="lg:min-w-0 lg:flex-1 lg:border-l lg:border-gold/30 lg:pl-10">
-              <motion.p {...settle(0.55)} className="text-[0.72rem] font-medium uppercase tracking-eyebrow text-gold">
+              <motion.p {...settle(0.2)} className="text-[0.72rem] font-medium uppercase tracking-eyebrow text-gold">
                 {site.regions}
               </motion.p>
               <motion.h1
-                {...settle(0.65)}
+                {...settle(0.28)}
                 className="mt-3 text-[1.7rem] font-medium uppercase leading-[1.1] tracking-[0.06em] text-espresso sm:text-[2.15rem]"
               >
                 Mocha Moments Events
               </motion.h1>
               <motion.p
-                {...settle(0.75)}
+                {...settle(0.36)}
                 className="mt-3 max-w-xl text-[0.95rem] leading-relaxed text-mocha"
               >
                 <em className="text-lg italic text-espresso">
@@ -87,12 +87,12 @@ export function Hero() {
             </div>
 
             <motion.div
-              {...settle(0.85)}
+              {...settle(0.44)}
               className="flex flex-wrap items-center justify-center gap-5 lg:shrink-0 lg:flex-col lg:items-end"
             >
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-full bg-espresso px-6 py-3 text-[0.85rem] font-medium uppercase tracking-[0.08em] text-ivory transition-colors duration-200 hover:bg-mocha"
+                className="press inline-flex items-center gap-2 rounded-full bg-espresso px-6 py-3 text-[0.85rem] font-medium uppercase tracking-[0.08em] text-ivory hover:bg-mocha"
               >
                 Start Planning Your Day
               </a>

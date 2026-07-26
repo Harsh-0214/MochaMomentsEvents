@@ -97,7 +97,7 @@ export function Gallery() {
       <div className="mx-auto max-w-page px-5 py-24 sm:px-8 lg:py-32">
         <Reveal>
           <RevealItem>
-            <p className="eyebrow text-center">Moments we&rsquo;ve poured</p>
+            <p className="eyebrow text-gold text-center">Moments we&rsquo;ve poured</p>
           </RevealItem>
           <RevealItem>
             <h2

@@ -10,6 +10,10 @@
   --ivory: #fbf6ef;
   --champagne: #f3e8d8;
   --gold: #c9a464;
+  /* Candlelight gold reads at only 2.2:1 on ivory — far below the 4.5:1 AA
+     floor. This deeper draw keeps the gold character for text and icons on
+     light surfaces while passing contrast. */
+  --gold-deep: #8a6b33;
   --sage: #a8ad91;
   /* RGB channels for Tailwind's <alpha-value> opacity modifiers */
   --espresso-rgb: 46 31 23;
@@ -17,6 +21,7 @@
   --ivory-rgb: 251 246 239;
   --champagne-rgb: 243 232 216;
   --gold-rgb: 201 164 100;
+  --gold-deep-rgb: 138 107 51;
   --sage-rgb: 168 173 145;
 }
 
@@ -91,7 +96,43 @@ textarea:focus-visible {
 }
 
 @layer components {
+  /* Deep gold by default so eyebrows pass contrast on ivory/champagne;
+     dark sections override with the brighter `text-gold` utility. */
   .eyebrow {
-    @apply font-sans text-[0.7rem] font-medium uppercase tracking-eyebrow text-gold;
+    @apply font-sans text-[0.7rem] font-medium uppercase tracking-eyebrow text-gold-deep;
+  }
+
+  /* Press feedback — every pressable surface should answer the tap.
+     Declares its own colour transitions too, so no `transition-colors`
+     utility is needed on the element (a utility would win the cascade
+     and drop the transform). */
+  .press {
+    transition: transform 160ms cubic-bezier(0.22, 1, 0.36, 1),
+      background-color 200ms ease, color 200ms ease;
+  }
+  .press:active {
+    transform: scale(0.97);
+  }
+
+  /* Card hover lift, pointer devices only */
+  @media (hover: hover) and (pointer: fine) {
+    .lift {
+      transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 260ms ease, box-shadow 260ms ease;
+    }
+    .lift:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .press,
+    .lift {
+      transition: none;
+    }
+    .press:active,
+    .lift:hover {
+      transform: none;
+    }
   }
 }

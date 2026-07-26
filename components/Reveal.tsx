@@ -55,10 +55,10 @@ export function RevealItem({
         visible: { opacity: 1, transition: { duration: 0.28 } },
       }
     : {
-        hidden: { opacity: 0, y: 16 },
+        hidden: { opacity: 0, transform: "translateY(16px)" },
         visible: {
           opacity: 1,
-          y: 0,
+          transform: "translateY(0px)",
           transition: { duration: 0.28, ease: EASE_OUT },
         },
       };

@@ -48,13 +48,13 @@ export function Services() {
             <RevealItem
               as="li"
               key={s.title}
-              className="group flex flex-col rounded-2xl border border-espresso/10 bg-white/70 p-8 transition-[border-color,box-shadow] duration-300 hover:border-gold/60 hover:shadow-[0_12px_40px_-12px_rgba(46,31,23,0.2)]"
+              className="lift group flex flex-col rounded-2xl border border-espresso/10 bg-white/70 p-8 hover:border-gold/70 hover:shadow-[0_18px_44px_-14px_rgba(46,31,23,0.25)]"
             >
               <s.icon
                 size={26}
                 strokeWidth={1.5}
                 aria-hidden="true"
-                className="text-gold"
+                className="text-gold-deep"
               />
               <h3 className="mt-5 font-display text-3xl font-semibold text-espresso">
                 {s.title}

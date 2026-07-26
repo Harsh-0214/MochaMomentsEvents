@@ -55,7 +55,7 @@ export function Testimonials() {
                 i === 1 ? "md:translate-y-6" : ""
               }`}
             >
-              <span aria-hidden="true" className="font-display text-5xl leading-none text-gold">
+              <span aria-hidden="true" className="font-display text-5xl leading-none text-gold-deep">
                 &ldquo;
               </span>
               <p className="mt-2 flex-1 font-display text-xl italic leading-relaxed text-espresso">
