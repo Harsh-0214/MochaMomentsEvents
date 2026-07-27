@@ -3,12 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --espresso: #2e1f17;
-  /* Exact background brown of the Mocha_Logo.jpg lockup — dark surfaces
-     use this so the logo blends seamlessly into them */
-  --mocha: #4b3424;
-  --ivory: #fbf6ef;
-  --champagne: #f3e8d8;
+  /* One continuous espresso field carries the whole page */
+  --espresso: #2e2420;
+  --mocha: #3a2e28;
+  --ivory: #f3ebe1;
+  --champagne: #e6dbcd;
   --gold: #c9a464;
   /* Candlelight gold reads at only 2.2:1 on ivory — far below the 4.5:1 AA
      floor. This deeper draw keeps the gold character for text and icons on
@@ -16,10 +15,10 @@
   --gold-deep: #8a6b33;
   --sage: #a8ad91;
   /* RGB channels for Tailwind's <alpha-value> opacity modifiers */
-  --espresso-rgb: 46 31 23;
-  --mocha-rgb: 75 52 36;
-  --ivory-rgb: 251 246 239;
-  --champagne-rgb: 243 232 216;
+  --espresso-rgb: 46 36 32;
+  --mocha-rgb: 58 46 40;
+  --ivory-rgb: 243 235 225;
+  --champagne-rgb: 230 219 205;
   --gold-rgb: 201 164 100;
   --gold-deep-rgb: 138 107 51;
   --sage-rgb: 168 173 145;
@@ -27,8 +26,8 @@
 
 html {
   scroll-behavior: smooth;
-  /* Anchored sections land clear of the fixed nav */
-  scroll-padding-top: 5.5rem;
+  /* Anchored sections land clear of the fixed nav (6.5rem tall) */
+  scroll-padding-top: 7.5rem;
 }
 
 /* Lenis drives scrolling when active — hand it full control */
@@ -99,7 +98,27 @@ textarea:focus-visible {
   /* Deep gold by default so eyebrows pass contrast on ivory/champagne;
      dark sections override with the brighter `text-gold` utility. */
   .eyebrow {
-    @apply font-sans text-[0.7rem] font-medium uppercase tracking-eyebrow text-gold-deep;
+    @apply font-sans text-[0.7rem] font-medium uppercase tracking-eyebrow text-champagne/70;
+  }
+
+  /* Thin hairline outline button — the mockup's only button treatment */
+  .btn-outline {
+    @apply press inline-flex items-center justify-center border border-champagne/45 px-9 py-4
+      font-sans text-[0.72rem] uppercase tracking-eyebrow text-ivory;
+  }
+  .btn-outline:hover {
+    background-color: rgb(var(--champagne-rgb) / 0.08);
+    border-color: rgb(var(--champagne-rgb) / 0.8);
+  }
+
+  /* Same hairline treatment inverted for the cream bands */
+  .btn-outline-dark {
+    @apply press inline-flex items-center justify-center border border-espresso/35 px-9 py-4
+      font-sans text-[0.72rem] uppercase tracking-eyebrow text-espresso;
+  }
+  .btn-outline-dark:hover {
+    background-color: rgb(var(--espresso-rgb) / 0.06);
+    border-color: rgb(var(--espresso-rgb) / 0.7);
   }
 
   /* Press feedback — every pressable surface should answer the tap.

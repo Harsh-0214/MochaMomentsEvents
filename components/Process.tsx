@@ -26,19 +26,19 @@ const steps = [
 
 export function Process() {
   return (
-    <section id="process" aria-labelledby="process-heading" className="bg-espresso">
-      <div className="mx-auto max-w-page px-5 py-24 sm:px-8 lg:py-32">
+    <section id="process" aria-labelledby="process-heading">
+      <div className="mx-auto max-w-[86rem] px-6 py-24 sm:px-10 lg:py-28">
         <Reveal>
           <RevealItem>
-            <p className="eyebrow text-gold">How it works</p>
+            <p className="eyebrow">How it works</p>
           </RevealItem>
           <RevealItem>
             <h2
               id="process-heading"
-              className="mt-4 max-w-2xl font-display text-4xl font-medium leading-tight text-ivory sm:text-5xl lg:text-[3.6rem]"
+              className="mt-4 max-w-2xl font-lockup text-[1.7rem] uppercase tracking-[0.2em] text-ivory sm:text-[2.1rem]"
             >
               From first hello to last dance,{" "}
-              <em className="italic text-gold">step by step</em>
+              <em className="not-italic text-champagne/70">step by step</em>
             </h2>
           </RevealItem>
         </Reveal>
@@ -48,14 +48,14 @@ export function Process() {
             <RevealItem as="li" key={step.title} className="relative">
               <span
                 aria-hidden="true"
-                className="font-display text-5xl font-light italic text-gold/70"
+                className="font-lockup text-4xl text-champagne/45"
               >
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-4 font-display text-2xl font-semibold text-ivory">
+              <h3 className="mt-5 font-sans text-[0.72rem] uppercase tracking-eyebrow text-ivory">
                 {step.title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-champagne/80">
+              <p className="mt-4 font-sans text-[0.88rem] leading-[1.85] text-champagne/70">
                 {step.body}
               </p>
             </RevealItem>

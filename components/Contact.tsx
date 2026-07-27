@@ -61,21 +61,22 @@ export function Contact() {
   }
 
   const field =
-    "w-full rounded-lg border border-espresso/20 bg-white px-4 py-3 text-espresso placeholder:text-mocha/45";
-  const label = "block text-sm font-medium text-espresso";
-  const error = "mt-1.5 text-sm text-[#9C3D2E]";
+    "w-full border border-champagne/25 bg-transparent px-4 py-3 font-sans text-[0.95rem] text-ivory placeholder:text-champagne/35 focus:border-champagne/60";
+  const label =
+    "block font-sans text-[0.65rem] uppercase tracking-eyebrow text-champagne/80";
+  const error = "mt-2 font-sans text-[0.72rem] text-[#E8A793]";
 
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="bg-espresso">
-      <div className="mx-auto max-w-page px-5 py-24 sm:px-8 lg:py-32">
+    <section id="contact" aria-labelledby="contact-heading">
+      <div className="mx-auto max-w-[86rem] px-6 py-24 sm:px-10 lg:py-28">
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <div>
-            <p className="eyebrow text-gold">Inquire</p>
+            <p className="eyebrow">Inquire</p>
             <h2
               id="contact-heading"
-              className="mt-4 font-display text-4xl font-medium leading-tight text-ivory sm:text-5xl lg:text-[3.6rem]"
+              className="mt-4 font-lockup text-[1.7rem] uppercase tracking-[0.2em] text-ivory sm:text-[2.1rem]"
             >
-              Let&rsquo;s plan your <em className="italic text-gold">day</em>
+              Let&rsquo;s plan your <em className="not-italic text-champagne/70">day</em>
             </h2>
             <p className="mt-6 max-w-md leading-relaxed text-champagne/85">
               Tell us about your wedding or celebration — the date, the dream,
@@ -84,16 +85,16 @@ export function Contact() {
             </p>
             <ul className="mt-10 space-y-4 text-sm">
               <li className="flex items-center gap-3">
-                <MapPin size={17} strokeWidth={1.75} aria-hidden="true" className="text-gold" />
+                <MapPin size={17} strokeWidth={1.75} aria-hidden="true" className="text-champagne/70" />
                 <span>Serving the Bay Area, NorCal &amp; destination weddings</span>
               </li>
               <li className="flex items-center gap-3">
-                <Instagram size={17} strokeWidth={1.75} aria-hidden="true" className="text-gold" />
+                <Instagram size={17} strokeWidth={1.75} aria-hidden="true" className="text-champagne/70" />
                 <a
                   href={site.instagramUrl}
                   target="_blank"
                   rel="me noopener"
-                  className="underline decoration-gold/50 underline-offset-4 transition-colors duration-200 hover:text-ivory"
+                  className="underline decoration-champagne/40 underline-offset-4 transition-colors duration-200 hover:text-ivory"
                 >
                   {site.instagramHandle}
                 </a>
@@ -104,19 +105,19 @@ export function Contact() {
           {sent ? (
             <div
               role="status"
-              className="flex flex-col items-center justify-center rounded-2xl bg-ivory p-10 text-center"
+              className="flex flex-col items-center justify-center border border-champagne/25 p-12 text-center"
             >
               <Image
                 src="/Mocha_Logo.jpg"
                 alt=""
                 width={396}
                 height={396}
-                className="h-20 w-20 rounded-full object-cover ring-1 ring-espresso/15"
+                className="h-20 w-20 rounded-full object-cover ring-1 ring-champagne/25"
               />
-              <h3 className="mt-5 font-display text-3xl font-semibold text-espresso">
+              <h3 className="mt-6 font-lockup text-[1.3rem] uppercase tracking-[0.18em] text-ivory">
                 Your note is on its way
               </h3>
-              <p className="mt-3 max-w-sm leading-relaxed text-mocha">
+              <p className="mt-4 max-w-sm font-sans text-[0.92rem] leading-[1.9] text-champagne/80">
                 Thank you for sharing your day with us — we&rsquo;ll pour over
                 every word and reply within two business days. Until then, find
                 us on{" "}
@@ -124,7 +125,7 @@ export function Contact() {
                   href={site.instagramUrl}
                   target="_blank"
                   rel="me noopener"
-                  className="underline decoration-gold underline-offset-4"
+                  className="underline decoration-champagne/50 underline-offset-4"
                 >
                   Instagram
                 </a>
@@ -132,7 +133,7 @@ export function Contact() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} onChange={handleChange} noValidate className="rounded-2xl bg-ivory p-6 sm:p-10">
+            <form onSubmit={handleSubmit} onChange={handleChange} noValidate className="border border-champagne/25 p-7 sm:p-10">
               <div className="grid gap-5 sm:grid-cols-2">
                 <div className="sm:col-span-2">
                   <label htmlFor="names" className={label}>
@@ -199,7 +200,7 @@ export function Contact() {
                 <div>
                   <label htmlFor="venue" className={label}>
                     Venue or location{" "}
-                    <span className="font-normal text-mocha/60">(optional)</span>
+                    <span className="text-champagne/50">(optional)</span>
                   </label>
                   <input
                     id="venue"
@@ -213,7 +214,7 @@ export function Contact() {
                 <div>
                   <label htmlFor="guests" className={label}>
                     Guest count{" "}
-                    <span className="font-normal text-mocha/60">(optional)</span>
+                    <span className="text-champagne/50">(optional)</span>
                   </label>
                   <input
                     id="guests"
@@ -249,7 +250,7 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="press mt-7 w-full rounded-full bg-espresso px-7 py-4 text-sm font-medium text-ivory hover:bg-mocha sm:w-auto"
+                className="btn-outline mt-9 w-full sm:w-auto"
               >
                 Send our story
               </button>

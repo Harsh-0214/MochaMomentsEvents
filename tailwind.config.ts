@@ -23,6 +23,8 @@ const config: Config = {
         display: ["var(--font-display)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         logo: ["var(--font-logo)", "Didot", "Georgia", "serif"],
+        script: ["var(--font-script)", "cursive"],
+        lockup: ["var(--font-lockup)", "Didot", "Georgia", "serif"],
       },
       letterSpacing: {
         eyebrow: "0.22em",

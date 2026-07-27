@@ -1,73 +1,71 @@
-import { Gem, CalendarHeart, Clock4 } from "lucide-react";
+import { ClipboardCheck, CalendarDays, Plane, Heart } from "lucide-react";
 import { Reveal, RevealItem } from "@/components/Reveal";
 
+/** Interlocking bands — the one icon Lucide has no equivalent for. */
+function RingsIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 48 40"
+      fill="none"
+      aria-hidden="true"
+      className={className}
+      stroke="currentColor"
+      strokeWidth="1.4"
+    >
+      <circle cx="18" cy="25" r="12" />
+      <circle cx="31" cy="25" r="12" />
+      <path d="M25 5h6l3 5-6 6-6-6z" strokeLinejoin="round" />
+      <path d="M22 10h12" />
+    </svg>
+  );
+}
+
 const services = [
-  {
-    icon: Gem,
-    title: "Full Wedding Planning",
-    blurb:
-      "From the first venue walkthrough to the last sparkler, we plan the whole day around the two of you — vision and design, venue and vendor matchmaking, budget stewardship, and a timeline that leaves room to actually enjoy it.",
-    details: ["Vision & design direction", "Venue & vendor curation", "Budget & timeline management"],
-  },
-  {
-    icon: CalendarHeart,
-    title: "Event Planning & Design",
-    blurb:
-      "Engagement parties, showers, anniversaries, and milestone celebrations across the Bay Area — styled with the same candlelit warmth we bring to wedding days, at any scale.",
-    details: ["Celebrations & milestones", "Styling & tablescapes", "Vendor coordination"],
-  },
-  {
-    icon: Clock4,
-    title: "Day-of Coordination",
-    blurb:
-      "You've planned it; we'll protect it. Month-of and day-of wedding coordination that takes the clipboard out of your hands — vendor wrangling, timeline keeping, and calm, invisible logistics while you're in the moment.",
-    details: ["Month-of takeover", "Vendor & timeline management", "On-site direction all day"],
-  },
+  { icon: ClipboardCheck, lines: ["Full Service", "Wedding Planning"] },
+  { icon: RingsIcon, lines: ["Partial Planning", "& Coordination"] },
+  { icon: CalendarDays, lines: ["Day Of", "Coordination"] },
+  { icon: Plane, lines: ["Destination", "Weddings"] },
+  { icon: Heart, lines: ["Custom Packages", "Available"] },
 ];
 
 export function Services() {
   return (
-    <section id="services" aria-labelledby="services-heading" className="bg-ivory">
-      <div className="mx-auto max-w-page px-5 py-24 sm:px-8 lg:py-32">
+    <section id="services" aria-labelledby="services-heading" className="bg-ivory text-espresso">
+      <div className="mx-auto max-w-[86rem] px-6 py-24 sm:px-10 lg:py-28">
         <Reveal>
-          <RevealItem>
-            <p className="eyebrow text-center">What we do</p>
-          </RevealItem>
           <RevealItem>
             <h2
               id="services-heading"
-              className="mx-auto mt-4 max-w-2xl text-center font-display text-4xl font-medium leading-tight text-espresso sm:text-5xl lg:text-[3.6rem]"
+              className="text-center font-lockup text-[1.7rem] uppercase tracking-[0.28em] text-espresso sm:text-[2.1rem]"
             >
-              Bay Area wedding planning, <em className="italic text-gold">poured</em> three ways
+              Services
             </h2>
           </RevealItem>
         </Reveal>
 
-        <Reveal as="ul" className="mt-16 grid gap-6 md:grid-cols-3" stagger={0.08}>
-          {services.map((s) => (
+        <Reveal
+          as="ul"
+          className="mt-16 grid grid-cols-2 gap-y-14 sm:grid-cols-3 lg:grid-cols-5 lg:gap-y-0"
+          stagger={0.07}
+        >
+          {services.map((s, i) => (
             <RevealItem
               as="li"
-              key={s.title}
-              className="lift group flex flex-col rounded-2xl border border-espresso/10 bg-white/70 p-8 hover:border-gold/70 hover:shadow-[0_18px_44px_-14px_rgba(46,31,23,0.25)]"
+              key={s.lines.join(" ")}
+              className={`flex flex-col items-center px-4 text-center lg:px-6 ${
+                i > 0 ? "lg:border-l lg:border-espresso/20" : ""
+              }`}
             >
               <s.icon
-                size={26}
-                strokeWidth={1.5}
+                className="h-10 w-10 text-espresso"
+                strokeWidth={1.2}
                 aria-hidden="true"
-                className="text-gold-deep"
               />
-              <h3 className="mt-5 font-display text-3xl font-semibold text-espresso">
-                {s.title}
-              </h3>
-              <p className="mt-3 flex-1 text-[0.95rem] leading-relaxed text-mocha">{s.blurb}</p>
-              <ul className="mt-6 space-y-2 border-t border-espresso/10 pt-5">
-                {s.details.map((d) => (
-                  <li key={d} className="flex items-start gap-2.5 text-sm text-mocha/90">
-                    <span aria-hidden="true" className="mt-[0.55em] h-1 w-1 shrink-0 rounded-full bg-sage" />
-                    {d}
-                  </li>
-                ))}
-              </ul>
+              <p className="mt-7 font-sans text-[0.72rem] uppercase leading-[1.9] tracking-eyebrow text-mocha">
+                {s.lines[0]}
+                <br />
+                {s.lines[1]}
+              </p>
             </RevealItem>
           ))}
         </Reveal>

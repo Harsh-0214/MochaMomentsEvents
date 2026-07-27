@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bodoni_Moda, Cormorant_Garamond, Jost } from "next/font/google";
+import { Bodoni_Moda, Cormorant_Garamond, Jost, Italiana, Parisienne } from "next/font/google";
 import { site } from "@/lib/site";
 import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
@@ -20,6 +20,22 @@ const bodoni = Bodoni_Moda({
   subsets: ["latin"],
   style: ["normal", "italic"],
   variable: "--font-logo",
+  display: "swap",
+});
+
+// Elegant script for the one-word accents ("Detail", the signature)
+const parisienne = Parisienne({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-script",
+  display: "swap",
+});
+
+// Airy high-contrast display for the wordmark lockup
+const italiana = Italiana({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-lockup",
   display: "swap",
 });
 
@@ -68,7 +84,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${bodoni.variable} ${jost.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${bodoni.variable} ${jost.variable} ${parisienne.variable} ${italiana.variable}`}>
       <body className="font-sans">
         <a
           href="#main"

@@ -30,18 +30,18 @@ const quotes = [
 
 export function Testimonials() {
   return (
-    <section id="kind-words" aria-labelledby="kind-words-heading" className="bg-ivory">
-      <div className="mx-auto max-w-page px-5 py-24 sm:px-8 lg:py-32">
+    <section id="kind-words" aria-labelledby="kind-words-heading" className="bg-champagne text-espresso">
+      <div className="mx-auto max-w-[86rem] px-6 py-24 sm:px-10 lg:py-28">
         <Reveal>
           <RevealItem>
-            <p className="eyebrow text-center">Kind words</p>
+            <p className="eyebrow text-mocha text-center">Kind words</p>
           </RevealItem>
           <RevealItem>
             <h2
               id="kind-words-heading"
-              className="mx-auto mt-4 max-w-xl text-center font-display text-4xl font-medium leading-tight text-espresso sm:text-5xl lg:text-[3.6rem]"
+              className="mx-auto mt-4 max-w-xl text-center font-lockup text-[1.7rem] uppercase tracking-[0.2em] text-espresso sm:text-[2.1rem]"
             >
-              From couples we&rsquo;ll <em className="italic text-gold">never forget</em>
+              From couples we&rsquo;ll <em className="not-italic text-mocha/70">never forget</em>
             </h2>
           </RevealItem>
         </Reveal>
@@ -51,20 +51,20 @@ export function Testimonials() {
             <RevealItem
               as="blockquote"
               key={q.initials}
-              className={`flex flex-col rounded-2xl border border-espresso/5 bg-champagne/70 p-8 ${
+              className={`flex flex-col border border-espresso/20 bg-ivory/60 p-9 ${
                 i === 1 ? "md:translate-y-6" : ""
               }`}
             >
-              <span aria-hidden="true" className="font-display text-5xl leading-none text-gold-deep">
+              <span aria-hidden="true" className="font-script text-5xl leading-none text-gold-deep">
                 &ldquo;
               </span>
               <p className="mt-2 flex-1 font-display text-xl italic leading-relaxed text-espresso">
                 {q.quote}
               </p>
-              <footer className="mt-6 border-t border-espresso/10 pt-4">
+              <footer className="mt-6 border-t border-espresso/15 pt-4">
                 <cite className="not-italic">
-                  <span className="block font-display text-base text-espresso">{q.initials}</span>
-                  <span className="block text-xs uppercase tracking-eyebrow text-mocha/70">
+                  <span className="block font-sans text-[0.7rem] uppercase tracking-eyebrow text-espresso">{q.initials}</span>
+                  <span className="block mt-1 block text-[0.65rem] uppercase tracking-eyebrow text-mocha/70">
                     {q.where}
                   </span>
                 </cite>

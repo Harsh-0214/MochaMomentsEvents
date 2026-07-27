@@ -93,19 +93,19 @@ const moments: GalleryItem[] = [
 
 export function Gallery() {
   return (
-    <section id="moments" aria-labelledby="moments-heading" className="bg-espresso">
-      <div className="mx-auto max-w-page px-5 py-24 sm:px-8 lg:py-32">
+    <section id="moments" aria-labelledby="moments-heading">
+      <div className="mx-auto max-w-[86rem] px-6 py-24 sm:px-10 lg:py-28">
         <Reveal>
           <RevealItem>
-            <p className="eyebrow text-gold text-center">Moments we&rsquo;ve poured</p>
+            <p className="eyebrow text-center">Moments we&rsquo;ve poured</p>
           </RevealItem>
           <RevealItem>
             <h2
               id="moments-heading"
-              className="mx-auto mt-4 max-w-2xl text-center font-display text-4xl font-medium leading-tight text-ivory sm:text-5xl lg:text-[3.6rem]"
+              className="mx-auto mt-4 max-w-2xl text-center font-lockup text-[1.7rem] uppercase tracking-[0.2em] text-ivory sm:text-[2.1rem]"
             >
               Real weddings across NorCal{" "}
-              <em className="italic text-gold">&amp; beyond</em>
+              <em className="not-italic text-champagne/70">&amp; beyond</em>
             </h2>
           </RevealItem>
         </Reveal>

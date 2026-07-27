@@ -2,15 +2,15 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
 import { site } from "@/lib/site";
+import { BeanMark } from "@/components/Watermark";
 
 const EASE_OUT = [0.22, 1, 0.36, 1] as const;
 
 /**
- * Half-and-half hero: the ceremony photo fills the upper half beneath the
- * solid nav, and an ivory masthead band closes the section like a footer —
- * the studio logo, the name, the slogan, and the calls to action.
+ * Two-column hero on one continuous espresso field: the headline sits left,
+ * and the photograph fills the right with a deep rounded top-left corner
+ * clipping into the layout. Faint bean line-art drifts behind the type.
  */
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -29,83 +29,68 @@ export function Hero() {
         };
 
   return (
-    <section id="top" className="relative pt-[4.5rem]">
-      {/* Upper half — the ceremony photo */}
-      <motion.div
-        className="relative h-[40svh] min-h-[16rem] lg:h-[48svh]"
-        initial={{ opacity: 0, scale: reduceMotion ? 1 : 1.03 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, ease: EASE_OUT }}
-      >
-        <Image
-          src="/Hero_Mocha.png"
-          alt="Golden-hour outdoor wedding ceremony on a cypress-lined lawn: white floral altar centered at the end of a petal-strewn aisle flanked by white chairs"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-      </motion.div>
+    <section id="top" className="relative overflow-hidden pt-[6.5rem]">
+      {/* Decorative bean watermarks */}
+      <BeanMark
+        className="pointer-events-none absolute -left-8 top-4 hidden h-[22rem] w-auto text-champagne/[0.07] lg:block"
+      />
+      <BeanMark
+        className="pointer-events-none absolute left-40 top-24 hidden h-[16rem] w-auto rotate-[52deg] text-champagne/[0.05] lg:block"
+      />
 
-      {/* Lower half — masthead band */}
-      <div className="border-t border-gold/30 bg-ivory">
-        <div className="mx-auto max-w-page px-5 py-11 font-logo sm:px-8 lg:py-14">
-          <div className="flex flex-col items-center gap-9 text-center lg:flex-row lg:gap-10 lg:text-left">
-            <motion.div {...settle(0.12)} className="shrink-0">
-              <Image
-                src="/Mocha_Logo.jpg"
-                alt="Mocha Moments Events logo — cream serif wordmark with coffee bean illustration, est. 2025, events by Anastasiya Moroz, California"
-                width={396}
-                height={396}
-                className="h-40 w-40 rounded-full object-cover shadow-[0_14px_36px_-14px_rgba(46,31,23,0.45)] ring-1 ring-gold/30 sm:h-48 sm:w-48"
-                priority
-              />
-            </motion.div>
+      <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-0">
+        {/* Left — headline */}
+        <div className="relative z-10 px-6 pt-4 sm:px-10 lg:py-24 lg:pl-[max(2.5rem,calc((100vw-86rem)/2+2.5rem))] lg:pr-14">
+          <motion.p
+            {...settle(0.1)}
+            className="font-sans text-[0.72rem] uppercase tracking-eyebrow text-champagne/80"
+          >
+            Weddings by {site.founder}
+          </motion.p>
 
-            <div className="lg:min-w-0 lg:flex-1 lg:border-l lg:border-gold/30 lg:pl-10">
-              <motion.p {...settle(0.2)} className="text-[0.72rem] font-medium uppercase tracking-eyebrow text-gold">
-                {site.regions}
-              </motion.p>
-              <motion.h1
-                {...settle(0.28)}
-                className="mt-3 text-[1.7rem] font-medium uppercase leading-[1.1] tracking-[0.06em] text-espresso sm:text-[2.15rem]"
-              >
-                Mocha Moments Events
-              </motion.h1>
-              <motion.p
-                {...settle(0.36)}
-                className="mt-3 max-w-xl text-[0.95rem] leading-relaxed text-mocha"
-              >
-                <em className="text-lg italic text-espresso">
-                  &ldquo;{site.slogan}&rdquo;
-                </em>
-                <span className="mt-1 block">
-                  Wedding planning and day-of coordination for the Bay Area,
-                  NorCal, and wherever love takes you.
-                </span>
-              </motion.p>
-            </div>
+          <motion.h1
+            {...settle(0.2)}
+            className="mt-7 font-lockup text-[3.1rem] uppercase leading-[0.94] tracking-[0.01em] text-ivory sm:text-[4.2rem] lg:text-[4.8rem]"
+          >
+            Pouring Love
+            <br />
+            Into Every
+            <br />
+            <span className="font-script text-[1.05em] normal-case tracking-normal text-ivory">
+              Detail
+            </span>
+          </motion.h1>
 
-            <motion.div
-              {...settle(0.44)}
-              className="flex flex-wrap items-center justify-center gap-5 lg:shrink-0 lg:flex-col lg:items-end"
-            >
-              <a
-                href="#contact"
-                className="press inline-flex items-center gap-2 rounded-full bg-espresso px-6 py-3 text-[0.85rem] font-medium uppercase tracking-[0.08em] text-ivory hover:bg-mocha"
-              >
-                Start Planning Your Day
-              </a>
-              <a
-                href="#moments"
-                className="inline-flex items-center gap-2 text-[0.85rem] font-medium uppercase tracking-[0.08em] text-espresso underline decoration-gold decoration-2 underline-offset-4 transition-colors duration-200 hover:text-mocha"
-              >
-                See the moments
-                <ArrowDown size={15} aria-hidden="true" />
-              </a>
-            </motion.div>
-          </div>
+          <motion.p
+            {...settle(0.3)}
+            className="mt-8 max-w-sm font-sans text-[0.95rem] leading-relaxed text-champagne/80"
+          >
+            Thoughtful planning. Timeless design. Unforgettable moments.
+          </motion.p>
+
+          <motion.div {...settle(0.4)} className="mt-10">
+            <a href="#contact" className="btn-outline">
+              Let&rsquo;s plan your day
+            </a>
+          </motion.div>
         </div>
+
+        {/* Right — photograph, rounded top-left corner clipping in */}
+        <motion.div
+          initial={{ opacity: 0, transform: reduceMotion ? "none" : "scale(1.03)" }}
+          animate={{ opacity: 1, transform: "scale(1)" }}
+          transition={{ duration: 0.9, ease: EASE_OUT }}
+          className="relative h-[48svh] min-h-[19rem] w-full overflow-hidden rounded-tl-[6rem] sm:rounded-tl-[9rem] lg:h-[78svh] lg:rounded-tl-[11rem]"
+        >
+          <Image
+            src="/Hero_Mocha.png"
+            alt="Golden-hour outdoor wedding ceremony on a cypress-lined lawn with a white floral altar at the end of a petal-strewn aisle"
+            fill
+            priority
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover object-center"
+          />
+        </motion.div>
       </div>
     </section>
   );

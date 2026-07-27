@@ -1,17 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import { Instagram, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { site } from "@/lib/site";
 
 const links = [
+  { href: "#top", id: "top", label: "Home" },
   { href: "#about", id: "about", label: "About" },
   { href: "#services", id: "services", label: "Services" },
+  { href: "#moments", id: "moments", label: "Portfolio" },
   { href: "#process", id: "process", label: "Process" },
-  { href: "#moments", id: "moments", label: "Moments" },
   { href: "#kind-words", id: "kind-words", label: "Kind Words" },
-  { href: "#contact", id: "contact", label: "Inquire" },
 ];
 
 export function Nav() {
@@ -42,59 +41,35 @@ export function Nav() {
     };
   }, []);
 
+  const linkCls = (id: string) =>
+    `relative font-sans text-[0.68rem] uppercase tracking-eyebrow transition-colors duration-200 hover:text-ivory ${
+      active === id ? "text-ivory" : "text-champagne/65"
+    }`;
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 bg-espresso transition-shadow duration-300 ${
-        scrolled || open ? "shadow-[0_1px_0_0_rgba(243,232,216,0.14)]" : ""
+        scrolled || open ? "shadow-[0_1px_0_0_rgba(230,219,205,0.14)]" : ""
       }`}
     >
       <nav
         aria-label="Main"
-        className="mx-auto flex h-[4.5rem] max-w-page items-center justify-between px-5 sm:px-8"
+        className="mx-auto grid h-[6.5rem] max-w-[86rem] grid-cols-[auto_1fr_auto] items-center gap-4 px-5 sm:px-8 lg:grid-cols-3"
       >
-        <a href="#top" className="flex items-center gap-3">
-          <Image
-            src="/Mocha_Logo.jpg"
-            alt=""
-            width={396}
-            height={396}
-            className="h-11 w-11 rounded-full object-cover ring-1 ring-champagne/25"
-            priority
-          />
-          <span className="font-display text-base font-semibold uppercase tracking-[0.22em] text-ivory sm:text-lg">
-            Mocha Moments
-          </span>
-        </a>
-
-        <div className="hidden items-center gap-7 lg:flex">
-          {links.map((l) => (
-            <a
-              key={l.id}
-              href={l.href}
-              aria-current={active === l.id ? "true" : undefined}
-              className={`relative text-sm transition-colors duration-200 hover:text-ivory ${
-                active === l.id ? "text-ivory" : "text-champagne/75"
-              }`}
-            >
-              {l.label}
-              <span
-                aria-hidden="true"
-                className={`absolute -bottom-1.5 left-0 h-px w-full origin-left bg-gold transition-transform duration-300 ease-out ${
-                  active === l.id ? "scale-x-100" : "scale-x-0"
-                }`}
-              />
-            </a>
+        {/* Left — section links */}
+        <ul className="hidden items-center gap-9 lg:flex">
+          {links.slice(0, 4).map((l) => (
+            <li key={l.id}>
+              <a
+                href={l.href}
+                aria-current={active === l.id ? "true" : undefined}
+                className={linkCls(l.id)}
+              >
+                {l.label}
+              </a>
+            </li>
           ))}
-          <a
-            href={site.instagramUrl}
-            target="_blank"
-            rel="me noopener"
-            aria-label={`Follow ${site.name} on Instagram`}
-            className="text-ivory transition-colors duration-200 hover:text-gold"
-          >
-            <Instagram size={19} strokeWidth={1.75} aria-hidden="true" />
-          </a>
-        </div>
+        </ul>
 
         <button
           type="button"
@@ -104,19 +79,44 @@ export function Nav() {
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
+          {open ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
         </button>
+
+        {/* Center — wordmark lockup */}
+        <a href="#top" className="justify-self-center text-center leading-none">
+          <span className="block font-lockup text-[1.35rem] leading-[0.95] tracking-[0.06em] text-ivory sm:text-[1.7rem]">
+            MOCHA
+            <br />
+            MOMENTS
+          </span>
+          <span className="mt-1.5 block font-sans text-[0.55rem] uppercase tracking-[0.32em] text-champagne/65">
+            Est. {site.established}
+          </span>
+        </a>
+
+        {/* Right — inquire */}
+        <div className="justify-self-end">
+          <a href="#contact" className="btn-outline hidden px-7 py-3 lg:inline-flex">
+            Inquire
+          </a>
+          <a
+            href="#contact"
+            className="btn-outline px-4 py-2.5 text-[0.6rem] lg:hidden"
+          >
+            Inquire
+          </a>
+        </div>
       </nav>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-champagne/15 px-5 pb-6 pt-2 lg:hidden">
+        <div id="mobile-menu" className="border-t border-champagne/15 px-5 pb-7 pt-3 lg:hidden">
           <ul className="flex flex-col">
             {links.map((l) => (
               <li key={l.id}>
                 <a
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className={`block py-3 font-display text-xl ${
+                  className={`block py-3 font-sans text-xs uppercase tracking-eyebrow ${
                     active === l.id ? "text-gold" : "text-ivory"
                   }`}
                 >
@@ -129,9 +129,8 @@ export function Nav() {
             href={site.instagramUrl}
             target="_blank"
             rel="me noopener"
-            className="mt-3 inline-flex items-center gap-2 text-sm text-champagne"
+            className="mt-4 inline-block font-sans text-[0.65rem] uppercase tracking-eyebrow text-champagne/70"
           >
-            <Instagram size={17} strokeWidth={1.75} aria-hidden="true" />
             {site.instagramHandle}
           </a>
         </div>

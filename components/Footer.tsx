@@ -1,71 +1,49 @@
-import Image from "next/image";
-import { Instagram, Mail } from "lucide-react";
+import { Plane, Instagram, AtSign } from "lucide-react";
 import { site } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="border-t border-champagne/15 bg-mocha text-champagne">
-      <div className="mx-auto max-w-page px-5 py-16 sm:px-8 lg:py-20">
-        <div className="grid gap-12 md:grid-cols-[1.2fr_1fr_1fr]">
+    <footer className="border-t border-champagne/15">
+      <div className="mx-auto max-w-[86rem] px-6 py-12 sm:px-10">
+        <div className="flex flex-col items-center gap-9 text-center lg:flex-row lg:justify-between lg:gap-6 lg:text-left">
+          {/* Left — service area */}
+          <p className="flex items-center gap-3 font-sans text-[0.68rem] uppercase tracking-eyebrow text-champagne/80">
+            {site.regions}
+            <Plane size={15} strokeWidth={1.3} aria-hidden="true" />
+          </p>
+
+          {/* Center — call to action */}
           <div>
-            {/* The footer background is the logo's exact brown, so the JPG blends in */}
-            <Image
-              src="/Mocha_Logo.jpg"
-              alt="Mocha Moments Events logo — cream serif wordmark with coffee bean illustration, est. 2025, events by Anastasiya Moroz, California"
-              width={396}
-              height={396}
-              className="-ml-5 -mt-6 h-auto w-56"
-            />
-            <p className="mt-5 max-w-xs font-display text-sm italic leading-relaxed text-champagne/75">
-              &ldquo;{site.slogan}&rdquo;
+            <p className="font-sans text-[0.82rem] uppercase tracking-eyebrow text-ivory">
+              Ready to start planning?
+            </p>
+            <p className="mt-2 font-sans text-[0.68rem] uppercase tracking-eyebrow text-champagne/70">
+              <a
+                href="#contact"
+                className="underline decoration-champagne/40 underline-offset-4 transition-colors duration-200 hover:text-ivory"
+              >
+                DM to book your consultation
+              </a>
             </p>
           </div>
 
-          <div>
-            <h2 className="eyebrow text-gold">Find us</h2>
-            <ul className="mt-5 space-y-3 text-sm">
-              <li>
-                <a
-                  href={site.instagramUrl}
-                  target="_blank"
-                  rel="me noopener"
-                  className="inline-flex items-center gap-2.5 transition-colors duration-200 hover:text-gold"
-                >
-                  <Instagram size={16} strokeWidth={1.75} aria-hidden="true" />
-                  {site.instagramHandle}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${site.email}`}
-                  className="inline-flex items-center gap-2.5 transition-colors duration-200 hover:text-gold"
-                >
-                  <Mail size={16} strokeWidth={1.75} aria-hidden="true" />
-                  {site.email}
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="eyebrow text-gold">The studio</h2>
-            <ul className="mt-5 space-y-2 text-sm text-champagne/85">
-              {site.bioLines.map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-champagne/15 pt-7 text-xs text-champagne/60 sm:flex-row sm:items-center">
-          <p>
-            © {new Date().getFullYear()} {site.name} · Est. {site.established} ·
-            Events by {site.founder} · California
-          </p>
-          <a href="#top" className="transition-colors duration-200 hover:text-gold">
-            Back to top ↑
+          {/* Right — social */}
+          <a
+            href={site.instagramUrl}
+            target="_blank"
+            rel="me noopener"
+            className="press flex items-center gap-3 font-sans text-[0.68rem] uppercase tracking-eyebrow text-champagne/85 hover:text-ivory"
+          >
+            <Instagram size={19} strokeWidth={1.3} aria-hidden="true" />
+            <AtSign size={19} strokeWidth={1.3} aria-hidden="true" />
+            {site.instagramHandle}
           </a>
         </div>
+
+        <p className="mt-10 border-t border-champagne/10 pt-6 text-center font-sans text-[0.6rem] uppercase tracking-eyebrow text-champagne/45">
+          © {new Date().getFullYear()} {site.name} · Est. {site.established} ·
+          Events by {site.founder} · California
+        </p>
       </div>
     </footer>
   );
