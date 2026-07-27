@@ -13,7 +13,10 @@ export const site = {
   instagramHandle: "@mochamomentsevents",
   instagramUrl: "https://www.instagram.com/mochamomentsevents/",
   email: "hello@mochamomentsevents.com",
-  url: "https://mochamomentsevents.com",
+  // Live deployment. Point this at the custom domain once it is connected —
+  // canonical tags, sitemap.xml, robots.txt, Open Graph and the JSON-LD all
+  // derive from this one value.
+  url: "https://mocha-moments-events.vercel.app",
   // Verbatim Instagram bio lines, used in footer/about
   bioLines: [
     "weddings by Anastasiya Moroz",
