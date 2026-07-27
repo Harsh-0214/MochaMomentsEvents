@@ -83,8 +83,8 @@ export function Hero() {
           className="relative h-[48svh] min-h-[19rem] w-full overflow-hidden rounded-tl-[6rem] sm:rounded-tl-[9rem] lg:h-[78svh] lg:rounded-tl-[11rem]"
         >
           <Image
-            src="/Hero_Mocha.png"
-            alt="Golden-hour outdoor wedding ceremony on a cypress-lined lawn with a white floral altar at the end of a petal-strewn aisle"
+            src="/Image1.png"
+            alt="Golden-hour wedding reception tabletop with white garden roses and hydrangea, crystal candelabra with ivory taper candles, gold chiavari chairs and linen runner under string lights"
             fill
             priority
             sizes="(min-width: 1024px) 50vw, 100vw"

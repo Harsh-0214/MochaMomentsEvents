@@ -12,13 +12,13 @@ export function About() {
       <div className="mx-auto max-w-[86rem] px-6 py-24 sm:px-10 lg:py-28">
         <Reveal className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <RevealItem className="relative mx-auto w-full max-w-md lg:max-w-none">
-            <div className="relative aspect-[4/5] w-full overflow-hidden">
+            <div className="relative aspect-[3/4] w-full overflow-hidden">
               <Image
-                src="/Wedding photo backdrop.png"
-                alt="Bride and groom at golden hour on a cypress-lined NorCal lawn, surrounded by white garden roses"
+                src="/Image2.png"
+                alt="Bride and groom holding hands, seen from behind at golden hour, looking out over vineyard rows and distant mountains"
                 fill
                 sizes="(min-width: 1024px) 45vw, 90vw"
-                className="object-cover object-[center_35%]"
+                className="object-cover object-center"
               />
             </div>
           </RevealItem>
